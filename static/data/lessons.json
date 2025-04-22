@@ -50,19 +50,39 @@
       {
         "type": "tip",
         "text": "Remember that your triangle doesn't have to be perfectly symmetrical. A slight asymmetry can create a more natural, organic look while still maintaining the overall triangular structure."
-      }
-      ,{
+      },
+      {
         "type": "quiz",
         "questions": [
           {
-            "text": "Which insertion establishes the main structure of a balanced arrangement?",
-            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "text": "In the triangle arrangement, how tall should the two base roses be in relation to the central apex flower?",
+            "options": [
+              "Exactly the same height",
+              "Half to two-thirds the height",
+              "Three-quarters the height",
+              "One-quarter the height"
+            ],
             "answer": 1
           },
           {
-            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
-            "options": ["15°", "30°", "45°", "75°"],
+            "text": "Where do you position the tallest flower when starting a triangle arrangement?",
+            "options": [
+              "Front-left",
+              "Front-right",
+              "Back-center",
+              "Exact center of the vase opening"
+            ],
             "answer": 2
+          },
+          {
+            "text": "Angling the side roses slightly outward primarily helps to:",
+            "options": [
+              "Save space in the vase",
+              "Create a dynamic, natural flow",
+              "Reduce water uptake",
+              "Hide the floral foam"
+            ],
+            "answer": 1
           }
         ]
       },
@@ -131,17 +151,37 @@
         "type": "quiz",
         "questions": [
           {
-            "text": "Which insertion establishes the main structure of a balanced arrangement?",
-            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "text": "Why should auxiliary flower stems be trimmed gradually, a little at a time?",
+            "options": [
+              "To speed up water uptake",
+              "To avoid cutting them too short and wasting flowers",
+              "To change the flower's color",
+              "To strengthen the stem's structure"
+            ],
             "answer": 1
           },
           {
-            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
-            "options": ["15°", "30°", "45°", "75°"],
+            "text": "Where are auxiliary flowers usually placed in relation to the main triangle?",
+            "options": [
+              "Above the apex to add extra height",
+              "Below or between the main blooms to fill visual gaps",
+              "Outside the vase to create asymmetry",
+              "Directly in front of focal flowers to draw attention"
+            ],
+            "answer": 1
+          },
+          {
+            "text": "Angling auxiliary blooms slightly forward or sideways primarily creates:",
+            "options": [
+              "A stiff, formal appearance",
+              "An illusion of larger focal flowers",
+              "Natural movement and flow in the arrangement",
+              "A perfectly symmetrical structure"
+            ],
             "answer": 2
           }
         ]
-      },
+      },      
       {
         "type": "tip",
         "text": "When placing auxiliaries, step back frequently to view your arrangement from different angles. This helps you identify gaps and ensure balanced distribution throughout the arrangement."
@@ -201,24 +241,39 @@
         ]
       },
       {
-        "type": "quiz",
-        "questions": [
-          {
-            "text": "Which insertion establishes the main structure of a balanced arrangement?",
-            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
-            "answer": 1
-          },
-          {
-            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
-            "options": ["15°", "30°", "45°", "75°"],
-            "answer": 2
-          }
-        ]
-      },
-      {
         "type": "tip",
         "text": "When trimming linear flowers, remember the lesson from auxiliary placement: cut gradually! This is especially important for these tall stems, as cutting too short will eliminate the height you're trying to achieve."
       },
+      {
+        "type": "quiz",
+        "questions": [
+          {
+            "text": "Which of the following flowers is typically used as a linear element in floral design?",
+            "options": ["Roses", "Snapdragons", "Peonies", "Gerbera daisies"],
+            "answer": 1
+          },
+          {
+            "text": "When positioning linear flowers to add height, they should be placed:",
+            "options": [
+              "Below the focal triangle for balance",
+              "Along the vase rim to widen the base",
+              "Above the main blooms, extending the vertical line",
+              "Directly in front of auxiliary flowers"
+            ],
+            "answer": 2
+          },
+          {
+            "text": "Gently curving linear stems instead of keeping them perfectly straight primarily:",
+            "options": [
+              "Reduces the weight of the arrangement",
+              "Creates natural movement and avoids stiffness",
+              "Shortens the overall design height",
+              "Makes the stems easier to trim later"
+            ],
+            "answer": 1
+          }
+        ]
+      },      
       {
         "type": "conclusion",
         "text": "Beautiful work! Your arrangement is coming alive with height and movement thanks to the linear elements. In our final lesson, we'll complete your arrangement with foliage to create a unified, polished design."
@@ -281,17 +336,37 @@
         "type": "quiz",
         "questions": [
           {
-            "text": "Which insertion establishes the main structure of a balanced arrangement?",
-            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "text": "What is the primary role of foliage in a finished arrangement?",
+            "options": [
+              "To outshine the focal flowers",
+              "To soften lines, fill spaces, and unify the design",
+              "To add extra height above all flowers",
+              "To provide fragrance only"
+            ],
             "answer": 1
           },
           {
-            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
-            "options": ["15°", "30°", "45°", "75°"],
+            "text": "When establishing height balance with foliage, some stems should reach:",
+            "options": [
+              "Only the very bottom of the arrangement",
+              "Exactly the same height as the shortest flowers",
+              "Similar heights to your tallest linear elements",
+              "Higher than every flower for dramatic effect"
+            ],
             "answer": 2
+          },
+          {
+            "text": "Why should foliage be woven throughout the arrangement rather than placed just around the edges?",
+            "options": [
+              "It reduces the number of flowers needed",
+              "It mimics natural growth and adds depth and dimension",
+              "It keeps stems from overcrowding",
+              "It makes watering easier"
+            ],
+            "answer": 1
           }
         ]
-      },
+      },      
       {
         "type": "conclusion",
         "text": "Congratulations! You've completed all four lessons and learned how to create a beautiful, balanced flower arrangement using the principles of triangle structure, auxiliary blooms, linear elements, and foliage integration. You now have the foundational knowledge to create stunning floral designs for any occasion."
