@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Navbar */
+.navbar-brand .flower-icon {
+    font-size: 1.5em;
+    margin-right: 0.5rem;
+}
+
+/* Landing Page */
+.landing-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('/static/images/flowers-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 1rem;
+    border-radius: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.landing-hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#start-button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Technique Cards */
+.technique-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.technique-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.technique-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Lesson Pages */
+.teacher-bubble {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teacher-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.emoji-icon {
+    font-size: 3rem;
+}
+
+.intro-emoji {
+    font-size: 5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.key-points li {
+    margin-bottom: 0.5rem;
+}
+
+.lesson-text {
+    position: relative;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-text:after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-bottom-color: #f8f9fa;
+}
+
+/* Quiz Pages */
+.quiz-option {
+    text-align: left;
+    transition: all 0.2s ease;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.quiz-option:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.quiz-option.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Results Page */
+.results-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.completion-icon {
+    margin-bottom: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .landing-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .intro-emoji {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .landing-hero {
+        padding: 3rem 1rem;
+    }
+    
+    .landing-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .technique-emoji {
+        font-size: 2.5rem;
+    }
+} 

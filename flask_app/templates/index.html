@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Flower Academy | Home{% endblock %}
+
+{% block content %}
+<div class="landing-hero text-center py-5 mb-5">
+    <h1 class="display-4 mb-3">Welcome to Flower Academy</h1>
+    <p class="lead mb-4">Master the art of flower arrangement through our interactive courses</p>
+    <div class="d-flex justify-content-center">
+        <button id="start-button" class="btn btn-lg btn-success px-4 py-3">
+            <span class="me-2">Start Learning</span>
+            <i class="bi bi-arrow-right"></i>
+        </button>
+    </div>
+</div>
+
+<div id="technique-selection" class="course-selection mt-5" style="display: none;">
+    <h2 class="text-center mb-4">Select a Technique to Learn:</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <div class="col">
+            <div class="technique-card card h-100">
+                <div class="card-body text-center">
+                    <span class="technique-emoji d-block mb-3">📐</span>
+                    <h3 class="card-title">Triangle</h3>
+                    <p class="card-text">Create stable, balanced compositions using the classic triangle technique</p>
+                    <form action="{{ url_for('start') }}" method="post">
+                        <input type="hidden" name="technique" value="triangle">
+                        <button type="submit" class="btn btn-primary mt-3">Select</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="technique-card card h-100">
+                <div class="card-body text-center">
+                    <span class="technique-emoji d-block mb-3">✨</span>
+                    <h3 class="card-title">Auxiliary</h3>
+                    <p class="card-text">Enhance focal flowers with complementary elements for depth and texture</p>
+                    <form action="{{ url_for('start') }}" method="post">
+                        <input type="hidden" name="technique" value="auxiliary">
+                        <button type="submit" class="btn btn-primary mt-3">Select</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="technique-card card h-100">
+                <div class="card-body text-center">
+                    <span class="technique-emoji d-block mb-3">📏</span>
+                    <h3 class="card-title">Linear</h3>
+                    <p class="card-text">Design modern, minimalist arrangements with strong directional lines</p>
+                    <form action="{{ url_for('start') }}" method="post">
+                        <input type="hidden" name="technique" value="linear">
+                        <button type="submit" class="btn btn-primary mt-3">Select</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="technique-card card h-100">
+                <div class="card-body text-center">
+                    <span class="technique-emoji d-block mb-3">🌿</span>
+                    <h3 class="card-title">Foliage</h3>
+                    <p class="card-text">Focus on leaves and greenery as primary design elements</p>
+                    <form action="{{ url_for('start') }}" method="post">
+                        <input type="hidden" name="technique" value="foliage">
+                        <button type="submit" class="btn btn-primary mt-3">Select</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        // Handle start button click
+        $('#start-button').on('click', function() {
+            $(this).fadeOut(300, function() {
+                $('#technique-selection').fadeIn(300);
+            });
+            
+            // Log that user has started
+            $.post('/log', {action: 'start_clicked'});
+        });
+    });
+</script>
+{% endblock %} 

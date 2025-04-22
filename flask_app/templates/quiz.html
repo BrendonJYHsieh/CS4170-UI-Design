@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Flower Academy | {{ technique }} Quiz - Question {{ question_num }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 col-md-8 mx-auto">
+        <!-- Progress bar -->
+        <div class="progress mb-4" style="height: 30px;">
+            <div class="progress-bar bg-info" role="progressbar" 
+                style="width: {{ (question_num / total_questions) * 100 }}%;" 
+                aria-valuenow="{{ question_num }}" aria-valuemin="0" aria-valuemax="{{ total_questions }}">
+                {{ question_num }} / {{ total_questions }}
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-info text-white">
+                <h2 class="mb-0">Quiz: {{ technique | title }} Technique</h2>
+            </div>
+            <div class="card-body">
+                <div class="quiz-container">
+                    <div class="teacher-bubble quiz mb-4">
+                        <div class="teacher-icon">👩‍🏫</div>
+                        <h3>Let's test your knowledge:</h3>
+                    </div>
+                    
+                    <div class="quiz-question mb-4">
+                        <h4>{{ question.question }}</h4>
+                    </div>
+                    
+                    <div class="quiz-options">
+                        {% for option in question.options %}
+                        <div class="option-container mb-3">
+                            <button class="quiz-option btn btn-outline-secondary w-100 text-start p-3" 
+                                    data-option-index="{{ loop.index0 }}">
+                                {{ option }}
+                            </button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="quiz-feedback mt-4" style="display: none;">
+                        <div class="alert" id="feedback-alert">
+                            <p id="feedback-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                {% if question_num > 1 %}
+                <a href="{{ url_for('quiz', question_num=question_num-1) }}" class="btn btn-outline-primary">
+                    <i class="bi bi-arrow-left"></i> Previous
+                </a>
+                {% else %}
+                <a href="{{ url_for('learn', lesson_num=1) }}" class="btn btn-outline-primary">
+                    <i class="bi bi-book"></i> Back to Lessons
+                </a>
+                {% endif %}
+                
+                <button id="next-button" class="btn btn-primary" style="display: none;">
+                    {% if question_num < total_questions %}
+                    Next <i class="bi bi-arrow-right"></i>
+                    {% else %}
+                    See Results <i class="bi bi-check-circle"></i>
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        let answerSubmitted = false;
+        
+        // Handle option selection
+        $('.quiz-option').on('click', function() {
+            if (answerSubmitted) return;
+            
+            const selectedIndex = $(this).data('option-index');
+            const questionNum = {{ question_num }};
+            
+            // Visually indicate selection
+            $('.quiz-option').removeClass('selected');
+            $(this).addClass('selected');
+            
+            // Submit answer to server
+            $.post('/submit_answer', {
+                question_num: questionNum,
+                selected_option: selectedIndex
+            }, function(response) {
+                // Show feedback
+                answerSubmitted = true;
+                
+                const feedbackAlert = $('#feedback-alert');
+                if (response.is_correct) {
+                    feedbackAlert.removeClass('alert-danger').addClass('alert-success');
+                    $('#feedback-text').html('<strong>✓ Correct!</strong> ' + response.explanation);
+                } else {
+                    feedbackAlert.removeClass('alert-success').addClass('alert-danger');
+                    $('#feedback-text').html('<strong>✗ Not quite right.</strong> ' + response.explanation);
+                }
+                
+                $('.quiz-feedback').fadeIn();
+                $('#next-button').fadeIn();
+            });
+        });
+        
+        // Handle next button click
+        $('#next-button').on('click', function() {
+            if ({{ question_num }} < {{ total_questions }}) {
+                // Go to next question
+                window.location.href = "{{ url_for('quiz', question_num=question_num+1) }}";
+            } else {
+                // Go to results page
+                window.location.href = "{{ url_for('results') }}";
+            }
+        });
+    });
+</script>
+{% endblock %} 

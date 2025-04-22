@@ -1,0 +1,36 @@
+[
+  {
+    "timestamp": "2025-04-22T15:55:41.005694",
+    "action": "lesson_completed",
+    "data": {
+      "technique": "triangle",
+      "lesson_num": 2
+    }
+  },
+  {
+    "timestamp": "2025-04-22T15:55:41.006002",
+    "action": "view_lesson",
+    "data": {
+      "technique": "triangle",
+      "lesson_num": 3,
+      "lesson_type": "lesson"
+    }
+  },
+  {
+    "timestamp": "2025-04-22T15:55:42.042052",
+    "action": "lesson_completed",
+    "data": {
+      "technique": "triangle",
+      "lesson_num": 3
+    }
+  },
+  {
+    "timestamp": "2025-04-22T15:55:42.044033",
+    "action": "view_lesson",
+    "data": {
+      "technique": "triangle",
+      "lesson_num": 4,
+      "lesson_type": "quiz"
+    }
+  }
+]
