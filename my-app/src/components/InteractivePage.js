@@ -325,28 +325,65 @@ function InteractivePage({ data, onComplete }) {
     }
   };
 
+
+  const stageImages = [
+    "/images/stage1.png",
+    "/images/stage2.png",
+    "/images/stage3.png"
+  ];
+  
+  const correctOrder = [
+    "Tall center stem 🌷",
+    "Medium side stems 🌸",
+    "Filler flowers 🌿"
+  ];
+  
   const renderDragAndDrop = () => (
     <div className="interactive-activity drag-drop">
       <p className="activity-instructions">{data.instructions}</p>
+      
       <div className="drag-drop-container">
         <div className="placeholder-container">
-          <span className="flower-emoji">💐</span>
-          <p>Flower arrangement area</p>
+          {interactionState.selectedItems.length === 0 && (
+            <>
+              <span className="flower-emoji">💐</span>
+              <p>Flower arrangement area</p>
+            </>
+          )}
+          {interactionState.selectedItems.length > 0 && (
+            <img 
+              src={stageImages[interactionState.selectedItems.length - 1]} 
+              alt={`Stage ${interactionState.selectedItems.length}`} 
+              className="arrangement-stage-img"
+            />
+          )}
         </div>
       </div>
+      
       <div className="drag-items">
         {data.items.map((item, index) => (
           <div 
             key={index} 
             className={`drag-item ${interactionState.selectedItems.includes(index) ? 'placed' : ''}`}
             onClick={() => {
-              const updated = [...interactionState.selectedItems];
-              if (!updated.includes(index)) updated.push(index);
+              const expectedItem = correctOrder[interactionState.selectedItems.length];
+  
+              if (item !== expectedItem) {
+                setInteractionState({
+                  ...interactionState,
+                  errorMessage: `Please click "${expectedItem}" first to follow the correct order!`
+                });
+                return;
+              }
+  
+              const updated = [...interactionState.selectedItems, index];
               setInteractionState({
                 ...interactionState,
                 selectedItems: updated,
+                errorMessage: null,
                 completed: updated.length === data.items.length
               });
+  
               if (updated.length === data.items.length) {
                 onComplete && onComplete({ activity: 'drag-and-drop', success: true });
               }
@@ -356,6 +393,7 @@ function InteractivePage({ data, onComplete }) {
           </div>
         ))}
       </div>
+  
       <div className="target-zones">
         {data.targetZones.map((zone, index) => (
           <div key={index} className="target-zone">
@@ -366,6 +404,13 @@ function InteractivePage({ data, onComplete }) {
           </div>
         ))}
       </div>
+  
+      {interactionState.errorMessage && (
+        <div className="feedback error">
+          <p>{interactionState.errorMessage}</p>
+        </div>
+      )}
+  
       {interactionState.completed && (
         <div className="feedback success">
           <p>{data.feedback}</p>
@@ -373,6 +418,8 @@ function InteractivePage({ data, onComplete }) {
       )}
     </div>
   );
+  
+  
 
   const renderSorting = () => {
     return (
@@ -424,13 +471,30 @@ function InteractivePage({ data, onComplete }) {
   };
 
   const renderSlider = () => {
+    // Determine which image to show based on slider value
+    let imageSrc = "/images/auxiliary_minimal.png";
+    const sliderVal = parseInt(interactionState.sliderValue);
+  
+    if (sliderVal >= 66) {
+      imageSrc = "/images/auxiliary_abundant.png";
+    } else if (sliderVal >= 33) {
+      imageSrc = "/images/auxiliary_medium.png";
+    }
+  
     return (
       <div className="interactive-activity slider">
         <p className="activity-instructions">{data.instructions}</p>
+        
         <div className="slider-placeholder">
-          <span className="flower-emoji">🌹</span>
-          <p>Adjust elements in your arrangement</p>
+          <img 
+            src={imageSrc} 
+            alt="Arrangement Preview" 
+            className="arrangement-image"
+          />
+         
         </div>
+       
+        
         <div className="slider-container">
           <span className="slider-label">{data.sliderLabel}</span>
           <div className="slider-labels">
@@ -458,6 +522,7 @@ function InteractivePage({ data, onComplete }) {
             className="slider-input"
           />
         </div>
+        
         {interactionState.completed && (
           <div className="feedback success">
             <p>{data.feedback}</p>
@@ -466,6 +531,7 @@ function InteractivePage({ data, onComplete }) {
       </div>
     );
   };
+  
 
   const renderBeforeAfter = () => {
     return (

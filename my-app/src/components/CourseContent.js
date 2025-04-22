@@ -333,6 +333,15 @@ function CourseContent({ technique, onComplete }) {
     
     return () => clearTimeout(timer);
   }, [pageIndex]);
+  useEffect(() => {
+    // Reset progress and page index when switching techniques
+    setPageIndex(-1);
+    setUserProgress({});
+    setAnimations({
+      pageChange: false,
+      celebration: false
+    });
+  }, [technique]);
   
   const handleNext = () => {
     // Track that user has completed this page

@@ -1412,3 +1412,42 @@
     transform: translateY(-10px);
   }
 }
+
+
+/*triangle flower arrangement part*/
+.arrangement-stage-img {
+  width: 250px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.feedback.error {
+  color: #d9534f;
+  font-weight: 500;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
+
+/*slider Auxiliary Technique*/
+.slider-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f9eb;   /* Light green background */
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 600px;  /* Control max width */
+  margin: 0 auto;
+}
+
+.arrangement-image {
+  width: 100%;
+  max-width: 280px; 
+  height: auto;
+  object-fit: contain;
+}
+
