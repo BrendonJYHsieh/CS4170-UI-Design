@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Introduction to {{ content.title }}{% endblock %}
+
+{% block content %}
+<div class="course-container">
+    <div class="intro-header">
+        <span class="intro-emoji">{{ content.emoji }}</span>
+        <h2>{{ content.title }}</h2>
+    </div>
+    
+    <div class="intro-content">
+        <p class="intro-description">{{ content.description }}</p>
+        
+        <div class="key-points-container">
+            <h4>Key Points:</h4>
+            <ul class="key-points-list">
+                {% for point in content.keyPoints %}
+                <li>{{ point }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="intro-history">
+            <h4>Historical Context:</h4>
+            <p>{{ content.history }}</p>
+        </div>
+    </div>
+    
+    <div class="teacher-bubble">
+        <div class="teacher-icon">👩‍🏫</div>
+        <div class="teacher-content">
+            <p>I'll guide you through every step of this technique. Ready to get started?</p>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        <a href="{{ url_for('home') }}" class="nav-btn">← Home</a>
+        <a href="{{ url_for('learn', page_num=0) }}" class="nav-btn">Start Learning →</a>
+    </div>
+</div>
+{% endblock %} 

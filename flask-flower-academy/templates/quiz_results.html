@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Results | {{ technique|capitalize }} Technique{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <div class="results-emoji">
+        {% if score_percentage >= 80 %}
+        🎉
+        {% elif score_percentage >= 60 %}
+        👍
+        {% elif score_percentage >= 40 %}
+        😊
+        {% else %}
+        🤔
+        {% endif %}
+    </div>
+    
+    <h2>Quiz Results</h2>
+    
+    <div class="progress-circle">
+        <svg viewBox="0 0 100 100" width="150" height="150">
+            <circle class="progress-circle-bg" cx="50" cy="50" r="40" />
+            <circle class="progress-circle-progress" cx="50" cy="50" r="40" 
+                   stroke-dasharray="251.2" 
+                   stroke-dashoffset="{{ 251.2 - (251.2 * score_percentage / 100) }}" />
+        </svg>
+        <div class="progress-circle-text">{{ score_percentage|int }}%</div>
+    </div>
+    
+    <div class="results-score">
+        {{ correct_answers }} / {{ total_questions }} correct
+    </div>
+    
+    <div class="score-feedback">
+        {% if score_percentage >= 80 %}
+        Excellent work! You've mastered the {{ technique|capitalize }} Technique concepts.
+        {% elif score_percentage >= 60 %}
+        Good job! You understand most of the {{ technique|capitalize }} Technique concepts.
+        {% elif score_percentage >= 40 %}
+        Nice effort! You're on your way to understanding the {{ technique|capitalize }} Technique.
+        {% else %}
+        Keep practicing! The {{ technique|capitalize }} Technique takes time to master.
+        {% endif %}
+    </div>
+    
+    <div class="action-buttons">
+        <a href="{{ url_for('learn', page_num=0) }}" class="btn btn-primary">Review Course</a>
+        <a href="{{ url_for('home') }}" class="btn btn-outline-secondary ms-2">Back to Home</a>
+    </div>
+</div>
+{% endblock %} 

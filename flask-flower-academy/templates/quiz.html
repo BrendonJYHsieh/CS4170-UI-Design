@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz | {{ technique|capitalize }} Technique{% endblock %}
+
+{% block content %}
+<div class="course-container">
+    <h2>{{ technique|capitalize }} Technique</h2>
+    
+    <div class="progress-container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: {{ (page_num + 1) / total_pages * 100 }}%" aria-valuenow="{{ (page_num + 1) / total_pages * 100 }}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="progress-text">
+            <span>
+                {% if (page_num + 1) / total_pages < 0.25 %}
+                Just getting started! 🌱
+                {% elif (page_num + 1) / total_pages < 0.5 %}
+                You're making progress! 🌿
+                {% elif (page_num + 1) / total_pages < 0.75 %}
+                Keep going, you're doing great! 🌼
+                {% elif (page_num + 1) / total_pages < 1 %}
+                Almost there! 🌸
+                {% else %}
+                Course complete! 🎉
+                {% endif %}
+            </span>
+            <span>Step {{ page_num + 1 }} of {{ total_pages }}</span>
+        </div>
+    </div>
+    
+    <div class="course-content">
+        <div id="quiz-container" class="quiz-page" data-technique="{{ technique }}" data-quiz-num="{{ page_num }}" data-allow-retry="true">
+            <div class="teacher-bubble quiz">
+                <div class="teacher-icon">👩‍🏫</div>
+                <h3>Let's test your knowledge:</h3>
+            </div>
+            
+            <div class="quiz-question">
+                <p>{{ page.question }}</p>
+            </div>
+            
+            <div class="quiz-options">
+                {% for option in page.options %}
+                <button
+                    class="quiz-option"
+                    data-option-index="{{ loop.index0 }}"
+                >
+                    {{ loop.index0 | alpha }}. {{ option }}
+                </button>
+                {% endfor %}
+            </div>
+            
+            <div class="quiz-feedback" style="display: none;"></div>
+        </div>
+    </div>
+    
+    <div class="navigation">
+        {% if page_num > 0 %}
+        <a href="{{ url_for('learn', page_num=page_num-1) }}" class="nav-btn">← Previous</a>
+        {% else %}
+        <a href="{{ url_for('learn', page_num=-1) }}" class="nav-btn">← Introduction</a>
+        {% endif %}
+        
+        <div class="page-indicators">
+            {% for i in range(total_pages) %}
+            <span class="page-dot {% if i == page_num %}active{% endif %}"></span>
+            {% endfor %}
+        </div>
+        
+        {% if page_num < total_pages - 1 %}
+        <a href="{{ url_for('learn', page_num=page_num+1) }}" class="nav-btn next-button">Next →</a>
+        {% else %}
+        <a href="{{ url_for('complete_course') }}" class="nav-btn">Complete! 🎉</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Custom filter to convert numbers to letter (0 -> A, 1 -> B, etc.)
+    Jinja.filters.alpha = function(num) {
+        return String.fromCharCode(65 + num);
+    };
+</script>
+{% endblock %} 

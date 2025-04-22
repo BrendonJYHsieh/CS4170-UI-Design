@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Flower Academy - Learn the Art of Flower Arrangement{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Welcome to Flower Academy</h1>
+    <p class="lead">Master the art of flower arrangement through our interactive courses</p>
+    <p>Our step-by-step lessons, interactive activities, and quizzes will help you develop your skills and create beautiful floral designs.</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h2 class="text-center mb-4">Select a Technique to Learn:</h2>
+    </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
+    <div class="col">
+        <div class="technique-card" data-technique="triangle">
+            <span class="technique-emoji">📐</span>
+            <h3>Triangle</h3>
+            <p>Create stable, balanced compositions using the classic triangle technique</p>
+            <button class="btn btn-primary mt-3">Start Learning</button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="technique-card" data-technique="auxiliary">
+            <span class="technique-emoji">✨</span>
+            <h3>Auxiliary</h3>
+            <p>Enhance focal flowers with complementary elements for depth and texture</p>
+            <button class="btn btn-primary mt-3">Start Learning</button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="technique-card" data-technique="linear">
+            <span class="technique-emoji">📏</span>
+            <h3>Linear</h3>
+            <p>Design modern, minimalist arrangements with strong directional lines</p>
+            <button class="btn btn-primary mt-3">Start Learning</button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="technique-card" data-technique="foliage">
+            <span class="technique-emoji">🌿</span>
+            <h3>Foliage</h3>
+            <p>Focus on leaves and greenery as primary design elements</p>
+            <button class="btn btn-primary mt-3">Start Learning</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Why Learn Flower Arrangement?</h4>
+                <p class="card-text">Flower arrangement is both an art form and a practical skill. It allows you to create beautiful designs for your home, special events, or even as a potential career. Our courses will guide you through established techniques and help you develop your own unique style.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

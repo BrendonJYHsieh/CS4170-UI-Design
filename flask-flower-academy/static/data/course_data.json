@@ -1,0 +1,308 @@
+{
+  "triangle": {
+    "title": "Triangle Technique",
+    "introduction": {
+      "title": "Triangle Technique Basics",
+      "description": "The Triangle technique is one of the most fundamental designs in flower arrangement. It creates a stable, balanced composition that's pleasing to the eye.",
+      "keyPoints": [
+        "Creates a triangular shape with varying heights",
+        "Establishes harmony and balance in arrangements",
+        "Works well for formal displays and traditional settings",
+        "Often uses odd numbers of flowers for better balance"
+      ],
+      "history": "This technique has roots in Japanese Ikebana and Western classical arrangements. It's considered a foundational skill for all flower arranging.",
+      "emoji": "📐"
+    },
+    "pages": [
+      {
+        "type": "lesson",
+        "content": "Welcome to the Triangle technique! 💐 This classic design creates stability and harmony in your arrangement. Let's start this exciting journey together!",
+        "emoji": "📐"
+      },
+      {
+        "type": "interactive",
+        "activityType": "drag-and-drop",
+        "instructions": "Drag the flowers to create the first step of a triangle arrangement. Place the tallest stem in the center back.",
+        "items": ["Tall center stem 🌷", "Medium side stems 🌸", "Filler flowers 🌿"],
+        "targetZones": ["Back center 🔝", "Left and right sides ↔️", "Front and middle 🔽"],
+        "feedback": "Great! You've set up the basic triangle structure. The tallest stem at the back creates the apex of your triangle."
+      },
+      {
+        "type": "lesson",
+        "content": "Excellent! Now let's continue building our triangle. The triangle technique uses three main points to create a triangular shape. Place your tallest stem at the back center as the apex.",
+        "emoji": "🌷"
+      },
+      {
+        "type": "lesson",
+        "content": "Next, place medium height stems at the sides to form the width of your triangle. These should be slightly shorter than your center stem to create a natural slope.",
+        "emoji": "🌸"
+      },
+      {
+        "type": "interactive",
+        "activityType": "hotspot",
+        "instructions": "Click on the areas where you should place your medium-height stems to form the triangle's sides.",
+        "hotspots": [
+          { "x": 30, "y": 50, "radius": 15, "feedback": "Perfect! This creates the left side of your triangle." },
+          { "x": 70, "y": 50, "radius": 15, "feedback": "Excellent! This completes the right side of your triangle." }
+        ]
+      },
+      {
+        "type": "quiz",
+        "question": "What shape should your arrangement form when using the triangle technique?",
+        "options": [
+          "A perfect circle ⭕",
+          "A triangle with the tallest stem in the center 🔺",
+          "A square with equal height stems ⬜",
+          "A random assortment with no particular shape 🔄"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The triangle technique forms a triangular shape with the tallest stem at the back center (apex) and shorter stems on the sides, creating a three-dimensional triangular form."
+      },
+      {
+        "type": "lesson",
+        "content": "Now, fill in the remaining spaces with shorter stems and foliage to complete your triangular arrangement. This creates depth, fullness, and visual interest!",
+        "emoji": "🌿"
+      },
+      {
+        "type": "interactive",
+        "activityType": "color-picker",
+        "instructions": "Choose complementary colors for your triangle arrangement. Select colors that create harmony.",
+        "colorOptions": ["#FF6B6B", "#4ECDC4", "#FFD166", "#FF9F1C", "#2EC4B6", "#E71D36"],
+        "feedback": {
+          "positive": "Beautiful choice! These colors will create a harmonious triangle arrangement.",
+          "negative": "These colors might clash a bit. Try a different combination for better harmony."
+        }
+      },
+      {
+        "type": "quiz",
+        "question": "What is the last step in creating a triangle arrangement?",
+        "options": [
+          "Add more tall stems to the center 🌷",
+          "Remove all foliage 🚫",
+          "Fill in spaces with shorter stems and foliage 🌿",
+          "Create a second triangle upside down 🔻"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The final step is to fill in the spaces with shorter stems and foliage to create depth and fullness in your arrangement, completing the triangular shape."
+      }
+    ]
+  },
+  "auxiliary": {
+    "title": "Auxiliary Technique",
+    "introduction": {
+      "title": "Auxiliary Technique Basics",
+      "description": "The Auxiliary technique focuses on enhancing primary focal flowers with complementary elements that add texture, depth, and visual interest.",
+      "keyPoints": [
+        "Uses supporting flowers and foliage to complement focal blooms",
+        "Creates layers of visual interest and texture",
+        "Establishes rhythm and movement in arrangements",
+        "Adds depth and dimension to flat arrangements"
+      ],
+      "history": "This technique is widely used in European freestyle arrangements and contemporary designs. It emphasizes creativity and personal expression.",
+      "emoji": "✨"
+    },
+    "pages": [
+      {
+        "type": "lesson",
+        "content": "Welcome to the Auxiliary technique! ✨ This approach focuses on adding supporting elements to enhance your main flowers, creating texture and visual interest.",
+        "emoji": "🌺"
+      },
+      {
+        "type": "interactive",
+        "activityType": "slider",
+        "instructions": "Adjust the slider to see how different amounts of auxiliary elements affect your arrangement.",
+        "sliderLabel": "Amount of auxiliary elements",
+        "minLabel": "Minimal (subtle) 🔍",
+        "maxLabel": "Abundant (lush) 🌈",
+        "feedback": "Notice how the character of the arrangement changes with different amounts of auxiliary elements. Finding the right balance is key!"
+      },
+      {
+        "type": "lesson",
+        "content": "Begin by placing your focal flowers - these are typically larger, more colorful blooms that draw the eye and serve as the stars of your arrangement.",
+        "emoji": "🌹"
+      },
+      {
+        "type": "interactive",
+        "activityType": "hotspot",
+        "instructions": "Click on the image to identify where focal flowers should be placed in this arrangement.",
+        "hotspots": [
+          { "x": 30, "y": 30, "radius": 15, "feedback": "Perfect! Focal flowers should be prominent and draw attention." },
+          { "x": 70, "y": 40, "radius": 15, "feedback": "Good choice! This is an excellent spot for a secondary focal point." }
+        ]
+      },
+      {
+        "type": "lesson",
+        "content": "Now add auxiliary elements like smaller flowers, buds, and textural elements around your focal flowers. These support and enhance the main blooms while adding depth and interest.",
+        "emoji": "🌱"
+      },
+      {
+        "type": "interactive",
+        "activityType": "matching",
+        "instructions": "Match each auxiliary element with its best use in an arrangement.",
+        "pairs": [
+          { "item": "Baby's breath ✨", "match": "Adds delicate texture" },
+          { "item": "Fern leaves 🌿", "match": "Creates background structure" },
+          { "item": "Berry stems 🍒", "match": "Adds color accents" },
+          { "item": "Eucalyptus 🌳", "match": "Provides airy movement" }
+        ],
+        "feedback": "Excellent matching! Understanding the purpose of different auxiliary elements helps you create more dynamic arrangements."
+      },
+      {
+        "type": "quiz",
+        "question": "What is the primary purpose of auxiliary elements in flower arrangement?",
+        "options": [
+          "To replace the main flowers 🔄",
+          "To support and enhance the focal flowers ✨",
+          "To make the arrangement taller 📏",
+          "To reduce the cost of the arrangement 💰"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Auxiliary elements support and enhance the focal flowers by adding texture, depth, and visual interest to the arrangement while allowing the main blooms to shine."
+      }
+    ]
+  },
+  "linear": {
+    "title": "Linear Technique",
+    "introduction": {
+      "title": "Linear Technique Basics",
+      "description": "The Linear technique creates modern, minimalist arrangements with strong directional lines and clean composition.",
+      "keyPoints": [
+        "Emphasizes clean, straight lines and angles",
+        "Uses minimal materials for maximum impact",
+        "Creates contemporary, architectural designs",
+        "Focuses on negative space as much as the flowers"
+      ],
+      "history": "This approach gained popularity in mid-century modern design and continues to be favored in contemporary and minimalist settings.",
+      "emoji": "📏"
+    },
+    "pages": [
+      {
+        "type": "lesson",
+        "content": "Welcome to the Linear technique! 📏 This modern approach creates clean, contemporary arrangements with strong lines and minimal elements. Perfect for modern spaces!",
+        "emoji": "➖"
+      },
+      {
+        "type": "interactive",
+        "activityType": "draw-line",
+        "instructions": "Draw lines to show how you would position stems in a linear arrangement.",
+        "lineOptions": ["vertical", "horizontal", "diagonal"],
+        "feedback": "Great job! Linear arrangements use clean, deliberate lines to create visual impact with minimal elements."
+      },
+      {
+        "type": "lesson",
+        "content": "Start by selecting long, straight stems like gladiolus, snapdragons, or delphinium. These create the primary lines in your arrangement and establish the overall structure.",
+        "emoji": "🌿"
+      },
+      {
+        "type": "interactive",
+        "activityType": "sorting",
+        "instructions": "Sort these flowers from most suitable to least suitable for linear arrangements.",
+        "items": ["Gladiolus 📏", "Snapdragons 🌸", "Delphinium 🌿", "Peonies 🌺", "Hydrangeas 🌸"],
+        "correctOrder": ["Gladiolus 📏", "Snapdragons 🌸", "Delphinium 🌿", "Peonies 🌺", "Hydrangeas 🌸"],
+        "feedback": "Perfect! Long, straight stems are ideal for linear arrangements, while round, full blooms are better suited for other styles."
+      },
+      {
+        "type": "lesson",
+        "content": "Position your stems at various angles to create interesting linear patterns. Focus on creating vertical, horizontal, or diagonal lines that guide the eye through the arrangement.",
+        "emoji": "↗️"
+      },
+      {
+        "type": "quiz",
+        "question": "Which flowers are best suited for linear arrangements?",
+        "options": [
+          "Round, full blooms like peonies 🌺",
+          "Long, straight stems like gladiolus and snapdragons 📏",
+          "Fluffy flowers like hydrangeas ☁️",
+          "Small clustered flowers like baby's breath ✨"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Long, straight stems like gladiolus and snapdragons are ideal for linear arrangements because they naturally create strong, clean lines that define this style."
+      },
+      {
+        "type": "interactive",
+        "activityType": "before-after",
+        "instructions": "Slide to see the transformation from unorganized stems to a structured linear arrangement.",
+        "feedback": "See how organizing stems with intention creates a striking linear composition? The arrangement becomes more impactful and modern."
+      }
+    ]
+  },
+  "foliage": {
+    "title": "Foliage Technique",
+    "introduction": {
+      "title": "Foliage Technique Basics",
+      "description": "The Foliage technique focuses on leaves, branches, and greenery as the primary design elements rather than flowers.",
+      "keyPoints": [
+        "Celebrates the beauty and variety of leaves and stems",
+        "Creates textural contrast through different leaf shapes",
+        "Uses varying shades of green for subtle color variation",
+        "Creates long-lasting arrangements that don't rely on blooms"
+      ],
+      "history": "This technique has roots in Japanese Ikebana and has gained popularity with the rise of sustainable and minimalist design approaches.",
+      "emoji": "🌿"
+    },
+    "pages": [
+      {
+        "type": "lesson",
+        "content": "Welcome to the Foliage technique! 🌿 This approach celebrates greenery as the star of the arrangement rather than just as a background for flowers. Let's explore the beauty of leaves!",
+        "emoji": "🍃"
+      },
+      {
+        "type": "interactive",
+        "activityType": "spotlight",
+        "instructions": "Move the spotlight over the image to examine different textures and types of foliage in this arrangement.",
+        "spotlightRadius": 100,
+        "infoPoints": [
+          { "x": 30, "y": 30, "text": "Large monstera leaves create bold structure 🌴" },
+          { "x": 70, "y": 40, "text": "Feathery ferns add delicate texture 🌿" },
+          { "x": 50, "y": 70, "text": "Eucalyptus provides movement and airy quality 🌳" }
+        ]
+      },
+      {
+        "type": "lesson",
+        "content": "Begin by selecting a variety of foliage with different shapes, textures, and shades of green. Consider ferns, eucalyptus, ivy, monstera leaves, and other interesting greens.",
+        "emoji": "🌱"
+      },
+      {
+        "type": "interactive",
+        "activityType": "texture-palette",
+        "instructions": "Create a texture palette for your foliage arrangement. Select leaves with complementary textures.",
+        "foliageOptions": [
+          { "name": "Monstera 🌴", "texture": "Bold, large" },
+          { "name": "Fern 🌿", "texture": "Feathery, delicate" },
+          { "name": "Eucalyptus 🌳", "texture": "Round, silver-green" },
+          { "name": "Ivy 🍃", "texture": "Small, trailing" },
+          { "name": "Palm 🌴", "texture": "Structural, fan-shaped" }
+        ],
+        "maxSelections": 3,
+        "feedback": "Beautiful combination! Mixing different textures creates visual interest even without flowers."
+      },
+      {
+        "type": "lesson",
+        "content": "Create a framework with larger leaves first, then fill in with smaller or more delicate foliage. Focus on creating contrast between different leaf shapes and textures for a dynamic arrangement.",
+        "emoji": "🌿"
+      },
+      {
+        "type": "quiz",
+        "question": "What is the primary focus in a foliage arrangement?",
+        "options": [
+          "Bright, colorful flowers 🌸",
+          "Greenery and leaves of various textures and shapes 🌿",
+          "Height and size of the arrangement 📏",
+          "Expensive, exotic blooms 💰"
+        ],
+        "correctAnswer": 1,
+        "explanation": "In a foliage arrangement, the primary focus is on greenery and leaves of various textures and shapes, with little or no flowers. The beauty comes from the diversity of foliage."
+      },
+      {
+        "type": "interactive",
+        "activityType": "color-picker",
+        "instructions": "Select different shades of green to create a monochromatic foliage arrangement.",
+        "colorOptions": ["#9CC5A1", "#53A548", "#116530", "#2B4C3F", "#AECFA4", "#4D724D"],
+        "feedback": {
+          "positive": "Beautiful selection! These varying shades of green will create depth and interest in your foliage arrangement.",
+          "negative": "Try selecting more varied shades of green to create depth in your arrangement."
+        }
+      }
+    ]
+  }
+} 

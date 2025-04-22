@@ -1,0 +1,27 @@
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:21", "activity_type": "select_technique", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:24", "activity_type": "select_technique", "data": {"technique": "auxiliary"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:25", "activity_type": "select_technique", "data": {"technique": "linear"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:28", "activity_type": "select_technique", "data": {"technique": "foliage"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:38", "activity_type": "select_technique", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:41", "activity_type": "select_technique", "data": {"technique": "linear"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:36:43", "activity_type": "select_technique", "data": {"technique": "foliage"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:20", "activity_type": "select_technique", "data": {"technique": "auxiliary"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:33", "activity_type": "select_technique", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:36", "activity_type": "select_technique", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:39", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 1}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:42", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 2}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:47", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 3}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:48", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 4}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:50", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 5}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:51", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 6}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:52", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 7}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:52", "activity_type": "page_visit", "data": {"technique": "triangle", "page_num": 8}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:54", "activity_type": "course_completion", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:37:58", "activity_type": "select_technique", "data": {"technique": "auxiliary"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:02", "activity_type": "page_visit", "data": {"technique": "auxiliary", "page_num": 5}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:02", "activity_type": "page_visit", "data": {"technique": "auxiliary", "page_num": 4}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:06", "activity_type": "page_visit", "data": {"technique": "auxiliary", "page_num": 11}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:09", "activity_type": "page_visit", "data": {"technique": "auxiliary", "page_num": 1}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:12", "activity_type": "page_visit", "data": {"technique": "auxiliary", "page_num": 0}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:19", "activity_type": "select_technique", "data": {"technique": "triangle"}}
+{"user_id": "20250422153620", "timestamp": "2025-04-22 15:38:39", "activity_type": "select_technique", "data": {"technique": "triangle"}}
