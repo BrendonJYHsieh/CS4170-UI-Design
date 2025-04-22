@@ -1,0 +1,241 @@
+[
+  {
+    "id": 1,
+    "title": "Triangle Insertion",
+    "description": "Learn the basics of creating a triangle arrangement - the foundation of flower design.",
+    "content": [
+      {
+        "type": "introduction",
+        "text": "Welcome to your first flower arrangement lesson! Today we'll be learning about the triangle arrangement - a fundamental technique used by florists worldwide. This technique forms the strong foundational structure for almost all floral designs."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 1: Position Your First Flower",
+        "text": "Start by selecting your tallest rose for the back-center position. This will be the apex of your triangle. The height of this flower determines the overall scale of your arrangement.",
+        "image": "step1_triangle.jpg",
+        "detail": "Place the stem firmly in the floral foam or vase mechanism. The stem should be straight and secure. This central stem establishes the vertical line of your arrangement."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 2: Create the Base of Your Triangle",
+        "text": "Next, place two shorter roses in the front-left and front-right positions. These form the base of your triangle and establish the width of your arrangement.",
+        "image": "step2_triangle.jpg",
+        "detail": "These flowers should be about 1/2 to 2/3 the height of your central flower. Position them symmetrically to create balance in your arrangement."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 3: Angle for Natural Flow",
+        "text": "Now angle the side roses slightly outward. This prevents a flat, static appearance and creates a more natural, dynamic arrangement.",
+        "image": "step3_triangle.jpg",
+        "detail": "Imagine your flowers are growing naturally from a central point. They wouldn't all grow perfectly straight up - they'd reach outward toward the light. This outward angle mimics nature's patterns."
+      },
+      {
+        "type": "explanation",
+        "title": "Why This Works",
+        "points": [
+          {
+            "title": "Creates Balance",
+            "text": "The triangle is inherently stable and balanced, with equal visual weight on both sides."
+          },
+          {
+            "title": "Adds Depth",
+            "text": "By placing flowers at different heights and angles, you create a three-dimensional effect that adds interest and depth."
+          },
+          {
+            "title": "Forms a Strong Base",
+            "text": "This triangle structure serves as the foundation for your entire arrangement, allowing you to build upon it with confidence."
+          }
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "Remember that your triangle doesn't have to be perfectly symmetrical. A slight asymmetry can create a more natural, organic look while still maintaining the overall triangular structure."
+      },
+      {
+        "type": "conclusion",
+        "text": "Congratulations! You've mastered the triangle insertion technique! This will be the foundation for all your future arrangements. In the next lesson, we'll learn how to enhance this triangle with auxiliary flowers."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Auxiliary Placement",
+    "description": "Learn how to add smaller blooms to fill visual gaps and create fullness.",
+    "content": [
+      {
+        "type": "introduction",
+        "text": "Now that you've created your triangle base, let's learn how to add auxiliary flowers. These smaller blooms fill in the gaps and create a fuller, more cohesive arrangement. They're essential for creating depth and dimension in your design."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 1: Select Your Auxiliary Flowers",
+        "text": "Choose spray roses or other smaller blooms that complement your main flowers. They should be slightly smaller than your primary roses.",
+        "image": "step1_auxiliary.jpg",
+        "detail": "The auxiliary flowers should work harmoniously with your main blooms in terms of color and style. They're supporting actors, not meant to steal the show from your focal flowers."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 2: Trim Stems Gradually",
+        "text": "This is crucial: trim the stems gradually, cutting a little at a time. Test the height after each cut until you find the perfect position.",
+        "image": "step2_auxiliary.jpg",
+        "detail": "Remember that once you cut a stem, you can't make it longer again. Cutting gradually gives you fine-tuned control over the exact height you need. This prevents wasting flowers due to overcutting."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 3: Fill Visual Gaps",
+        "text": "Insert your auxiliary blooms below or between the main triangle to fill visual gaps. They should be positioned to create a natural transition between your main flowers.",
+        "image": "step3_auxiliary.jpg",
+        "detail": "Look for empty spaces in your arrangement that need filling. Position the auxiliary flowers to create a pleasing flow between your main blooms, guiding the viewer's eye through the arrangement."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 4: Create Natural Angles",
+        "text": "Angle auxiliary flowers slightly forward or to the side for a natural flow. This creates movement and prevents a stiff, artificial look.",
+        "image": "step4_auxiliary.jpg",
+        "detail": "In nature, not all flowers grow perfectly straight. Some lean and curve toward light. Mimicking these natural growth patterns creates a more authentic, organic-looking arrangement."
+      },
+      {
+        "type": "explanation",
+        "title": "Why This Works",
+        "points": [
+          {
+            "title": "Adds Fullness",
+            "text": "Spray roses and smaller blooms soften the space around your focal flowers, eliminating empty spots and creating a lush appearance."
+          },
+          {
+            "title": "Supports Balance",
+            "text": "Positioned lower than the main triangle, auxiliary flowers keep visual attention on your primary blooms while adding support and structure."
+          },
+          {
+            "title": "Creates Natural Layering",
+            "text": "This technique mimics how flowers grow in nature — with largest blooms positioned high and smaller ones nestled below, creating authentic dimension."
+          }
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "When placing auxiliaries, step back frequently to view your arrangement from different angles. This helps you identify gaps and ensure balanced distribution throughout the arrangement."
+      },
+      {
+        "type": "conclusion",
+        "text": "Excellent work! You've added depth and fullness to your arrangement with auxiliary flowers. In our next lesson, we'll learn how to add height and movement with linear elements."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Linear Elements",
+    "description": "Discover how to add height and movement with linear flowers.",
+    "content": [
+      {
+        "type": "introduction",
+        "text": "Linear elements add height, movement, and elegance to your arrangement. These tall, airy flowers create visual interest and guide the viewer's eye through your design. They're the perfect way to add a light, graceful touch to your arrangement."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 1: Select Linear Flowers",
+        "text": "Choose tall, slender flowers like delphinium, snapdragons, or larkspur for your linear elements. These flowers naturally create vertical lines in your arrangement.",
+        "image": "step1_linear.jpg",
+        "detail": "Linear flowers typically have multiple small blooms along a tall, straight stem. This creates a light, airy effect that contrasts beautifully with the more substantial focal flowers in your triangle base."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 2: Position for Height",
+        "text": "Insert the linear flowers above your main blooms, at the back or corners of your arrangement. They should extend significantly higher than your focal flowers.",
+        "image": "step2_linear.jpg",
+        "detail": "The linear elements should create a pleasing silhouette that draws the eye upward. They extend the vertical line established by your central triangle flower, creating height and drama."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 3: Create Natural Movement",
+        "text": "Weave the linear elements through the arrangement with gentle curves rather than placing them in perfectly straight lines. This avoids stiffness and creates a sense of natural movement.",
+        "image": "step3_linear.jpg",
+        "detail": "Allow some stems to lean slightly in different directions to create rhythm and flow. The goal is to create a natural effect, as if these flowers are growing and swaying gently in the breeze."
+      },
+      {
+        "type": "explanation",
+        "title": "Why This Works",
+        "points": [
+          {
+            "title": "Adds Height and Lightness",
+            "text": "Linear flowers extend your arrangement upward, creating a pleasing vertical dimension while maintaining an airy, delicate quality."
+          },
+          {
+            "title": "Creates Movement and Depth",
+            "text": "The gentle curves and varying heights of linear elements create visual rhythm and movement throughout your arrangement."
+          },
+          {
+            "title": "Finishes the Design with Elegance",
+            "text": "Linear flowers add a refined, sophisticated touch that elevates the entire arrangement from simple to striking."
+          }
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "When trimming linear flowers, remember the lesson from auxiliary placement: cut gradually! This is especially important for these tall stems, as cutting too short will eliminate the height you're trying to achieve."
+      },
+      {
+        "type": "conclusion",
+        "text": "Beautiful work! Your arrangement is coming alive with height and movement thanks to the linear elements. In our final lesson, we'll complete your arrangement with foliage to create a unified, polished design."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Foliage Integration",
+    "description": "Learn how to use greenery to soften, unify, and complete your arrangement.",
+    "content": [
+      {
+        "type": "introduction",
+        "text": "Foliage is the final touch that brings your entire arrangement together. Greenery softens the lines of your flowers, fills remaining spaces, and creates a cohesive, natural-looking design. It's the element that transforms a collection of flowers into a professional-looking arrangement."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 1: Select Complementary Foliage",
+        "text": "Choose soft, flowing foliage like eucalyptus, fern, or Italian ruscus. These types of greenery have a natural, organic quality that enhances your flowers without competing with them.",
+        "image": "step1_foliage.jpg",
+        "detail": "Different types of foliage create different effects. Eucalyptus adds a soft, silvery texture; ferns add delicate detail; ruscus adds structure with glossy leaves. Choose varieties that complement your flower types and arrangement style."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 2: Establish Height Balance",
+        "text": "Place some foliage stems at similar heights to your linear flowers to frame the arrangement. This creates a cohesive top line that unifies your design.",
+        "image": "step2_foliage.jpg",
+        "detail": "The foliage shouldn't all be the same height. Some pieces should reach as high as your tallest linear elements, while others fill in at middle and lower heights. This creates a natural, varied silhouette."
+      },
+      {
+        "type": "instruction",
+        "title": "Step 3: Create Natural Distribution",
+        "text": "Insert foliage around the edges and behind blooms, allowing leaves to peek out naturally between flowers. This creates depth and dimension throughout the arrangement.",
+        "image": "step3_foliage.jpg",
+        "detail": "Weave foliage throughout the arrangement, not just around the edges. The goal is to create the impression that the flowers are growing naturally among the greenery, just as they would in nature."
+      },
+      {
+        "type": "explanation",
+        "title": "Why This Works",
+        "points": [
+          {
+            "title": "Softens the Structure",
+            "text": "Foliage breaks up sharp lines and fills negative space, creating a softer, more natural-looking arrangement."
+          },
+          {
+            "title": "Adds Natural Rhythm",
+            "text": "The loose, organic shapes of leaves echo and complement the movement of your linear flowers, enhancing the flow of your design."
+          },
+          {
+            "title": "Unifies the Design",
+            "text": "Greenery connects elements from top to bottom, creating a cohesive whole and giving the arrangement a professional, finished appearance."
+          }
+        ]
+      },
+      {
+        "type": "tip",
+        "text": "Don't overcrowd your arrangement with foliage. The greenery should enhance your flowers, not overwhelm them. Add foliage gradually, stepping back frequently to assess the overall balance."
+      },
+      {
+        "type": "conclusion",
+        "text": "Congratulations! You've completed all four lessons and learned how to create a beautiful, balanced flower arrangement using the principles of triangle structure, auxiliary blooms, linear elements, and foliage integration. You now have the foundational knowledge to create stunning floral designs for any occasion."
+      }
+    ]
+  }
+] 

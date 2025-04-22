@@ -1,0 +1,245 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Home Page Styles */
+.home-container {
+    min-height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                url('/static/images/flowers-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 50px 20px;
+}
+
+.home-content {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.home-content h1 {
+    color: #28a745;
+    font-weight: 700;
+    font-size: 3rem;
+}
+
+.home-content h3 {
+    color: #6c757d;
+    font-weight: 300;
+}
+
+.home-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.topic-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.topic-number {
+    background-color: #28a745;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 auto 15px;
+}
+
+.topic-card h4 {
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.start-btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Learn Page Styles */
+.learn-container {
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    min-height: 100vh;
+    padding: 0;
+}
+
+.sidebar-content {
+    padding: 30px 15px;
+    position: sticky;
+    top: 0;
+}
+
+.lesson-nav {
+    margin-top: 20px;
+}
+
+.lesson-nav .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.lesson-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.lesson-nav .nav-link.active {
+    background-color: #28a745;
+    color: white;
+}
+
+.main-content {
+    padding: 40px;
+}
+
+.lesson-header {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.lesson-header h1 {
+    color: #28a745;
+}
+
+.lesson-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Content Types */
+.content-step {
+    margin-bottom: 40px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.step-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.instruction-container {
+    border-left: 4px solid #28a745;
+    padding-left: 20px;
+    margin: 25px 0;
+}
+
+.instruction-title {
+    color: #28a745;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.instruction-detail {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+.explanation-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.explanation-point {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 15px;
+}
+
+.explanation-point:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.explanation-title {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.tip-container {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    border-radius: 0 10px 10px 0;
+    margin: 25px 0;
+}
+
+.tip-container:before {
+    content: "💡 Tip:";
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    color: #856404;
+}
+
+.conclusion-container {
+    background-color: #d4edda;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+} 
