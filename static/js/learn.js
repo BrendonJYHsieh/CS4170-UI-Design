@@ -1,154 +1,166 @@
-$(document).ready(function() {
-    // Initialize variables
+/*  learn.js  – lesson navigation & (now) quiz support            */
+/*  Requires quiz.js to be loaded BEFORE this script in learn.html */
+
+$(document).ready(function () {
+    // -----------------------------------------
+    //  Variables
+    // -----------------------------------------
     let currentStepIndex = 0;
-    const lessonNumber = $('#lesson-number').val();
-    
-    // Function to render current step
+    const lessonNumber   = $('#lesson-number').val();
+
+    // -----------------------------------------
+    //  Rendering
+    // -----------------------------------------
     function renderCurrentStep() {
-        const currentStep = lessonContent[currentStepIndex];
-        let contentHtml = '';
-        
-        if (currentStep.type === 'introduction') {
-            contentHtml = `
-                <div class="content-step intro">
-                    <h3>Introduction</h3>
-                    <p>${currentStep.text}</p>
-                </div>
-            `;
-        } else if (currentStep.type === 'instruction') {
-            contentHtml = `
-                <div class="content-step instruction">
-                    <div class="instruction-container">
-                        <h3 class="instruction-title">${currentStep.title}</h3>
-                        <p>${currentStep.text}</p>
-                        ${currentStep.image ? `<img src="/static/images/${currentStep.image}" class="step-image" alt="${currentStep.title}">` : ''}
-                        <div class="instruction-detail">
-                            <strong>Expert Tip:</strong> ${currentStep.detail}
-                        </div>
-                    </div>
-                </div>
-            `;
-        } else if (currentStep.type === 'explanation') {
-            let pointsHtml = '';
-            
-            currentStep.points.forEach(point => {
-                pointsHtml += `
-                    <div class="explanation-point">
-                        <h5 class="explanation-title">${point.title}</h5>
-                        <p>${point.text}</p>
-                    </div>
-                `;
-            });
-            
-            contentHtml = `
-                <div class="content-step explanation">
-                    <h3>${currentStep.title}</h3>
-                    <div class="explanation-container">
-                        ${pointsHtml}
-                    </div>
-                </div>
-            `;
-        } else if (currentStep.type === 'tip') {
-            contentHtml = `
-                <div class="content-step tip">
-                    <div class="tip-container">
-                        ${currentStep.text}
-                    </div>
-                </div>
-            `;
-        } else if (currentStep.type === 'conclusion') {
-            contentHtml = `
-                <div class="content-step conclusion">
-                    <div class="conclusion-container">
-                        <h3>Congratulations!</h3>
-                        <p>${currentStep.text}</p>
-                    </div>
-                </div>
-            `;
+        const step = lessonContent[currentStepIndex];
+
+        // Delegate quiz steps to Quiz manager
+        if (step.type === 'quiz') {
+            Quiz.render(step);
+            afterRender();        // record progress, etc.
+            return;
         }
-        
-        $('#content-container').html(contentHtml);
-        
-        // Update navigation buttons
-        updateNavigationButtons();
-        
-        // Record progress
+
+        let html = '';
+
+        if (step.type === 'introduction') {
+            html = `
+                <div class="content-step intro">
+                  <h3>Introduction</h3>
+                  <p>${step.text}</p>
+                </div>`;
+        } else if (step.type === 'instruction') {
+            html = `
+                <div class="content-step instruction">
+                  <div class="instruction-container">
+                    <h3 class="instruction-title">${step.title}</h3>
+                    <p>${step.text}</p>
+                    ${
+                        step.image
+                            ? `<img src="/static/images/${step.image}" 
+                                    class="step-image" 
+                                    alt="${step.title}">`
+                            : ''
+                    }
+                    <div class="instruction-detail">
+                      <strong>Expert Tip:</strong> ${step.detail}
+                    </div>
+                  </div>
+                </div>`;
+        } else if (step.type === 'explanation') {
+            let points = '';
+            step.points.forEach(p => {
+                points += `
+                   <div class="explanation-point">
+                     <h5 class="explanation-title">${p.title}</h5>
+                     <p>${p.text}</p>
+                   </div>`;
+            });
+            html = `
+                <div class="content-step explanation">
+                  <h3>${step.title}</h3>
+                  <div class="explanation-container">${points}</div>
+                </div>`;
+        } else if (step.type === 'tip') {
+            html = `
+                <div class="content-step tip">
+                  <div class="tip-container">${step.text}</div>
+                </div>`;
+        } else if (step.type === 'conclusion') {
+            html = `
+                <div class="content-step conclusion">
+                  <div class="conclusion-container">
+                    <h3>Congratulations!</h3>
+                    <p>${step.text}</p>
+                  </div>
+                </div>`;
+        }
+
+        $('#content-container').html(html);
+        afterRender();            // record progress, etc.
+    }
+
+    // Shared post‑render duties
+    function afterRender() {
+        updateNavButtons();
         recordProgress(currentStepIndex);
     }
-    
-    // Function to record user's progress
-    function recordProgress(stepIndex) {
+
+    // -----------------------------------------
+    //  Progress tracking (server‑side)
+    // -----------------------------------------
+    function recordProgress(stepIdx) {
         $.ajax({
             url: '/record_progress',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({
-                lesson_number: lessonNumber,
-                step: stepIndex
-            }),
-            success: function(response) {
-                console.log('Progress recorded successfully');
-            },
-            error: function(error) {
-                console.error('Error recording progress:', error);
-            }
+            data: JSON.stringify({ lesson_number: lessonNumber, step: stepIdx })
         });
     }
-    
-    // Function to update navigation buttons
-    function updateNavigationButtons() {
-        // Previous button
-        if (currentStepIndex === 0) {
-            $('#prev-btn').prop('disabled', true);
-        } else {
-            $('#prev-btn').prop('disabled', false);
-        }
-        
-        // Next button
+
+    // -----------------------------------------
+    //  Navigation buttons state
+    // -----------------------------------------
+    function updateNavButtons() {
+        // Previous
+        $('#prev-btn').prop('disabled', currentStepIndex === 0);
+
+        // Next / Finish
         if (currentStepIndex === lessonContent.length - 1) {
             $('#next-btn').hide();
-            
-            // Show the appropriate button for last step
             if ($('#next-lesson-btn').length) {
                 $('#next-lesson-btn').show();
             } else {
                 $('#finish-btn').show();
             }
         } else {
-            $('#next-btn').show();
+            $('#next-btn').show().prop(
+                'disabled',
+                (lessonContent[currentStepIndex].type === 'quiz' &&
+                    !Quiz.isCompleted())
+            );
             $('#next-lesson-btn, #finish-btn').hide();
         }
     }
-    
-    // Event listeners for navigation buttons
-    $('#prev-btn').on('click', function() {
+
+    // -----------------------------------------
+    //  Button / keyboard handlers
+    // -----------------------------------------
+    $('#prev-btn').on('click', () => {
         if (currentStepIndex > 0) {
             currentStepIndex--;
             renderCurrentStep();
         }
     });
-    
-    $('#next-btn').on('click', function() {
+
+    $('#next-btn').on('click', () => {
         if (currentStepIndex < lessonContent.length - 1) {
             currentStepIndex++;
             renderCurrentStep();
         }
     });
-    
-    // Keyboard navigation
-    $(document).on('keydown', function(e) {
-        // Right arrow key
+
+    // keyboard arrows
+    $(document).on('keydown', e => {
         if (e.which === 39 && currentStepIndex < lessonContent.length - 1) {
-            currentStepIndex++;
-            renderCurrentStep();
-        }
-        // Left arrow key
-        else if (e.which === 37 && currentStepIndex > 0) {
+            if (
+                !(lessonContent[currentStepIndex].type === 'quiz') ||
+                Quiz.isCompleted()
+            ) {
+                currentStepIndex++;
+                renderCurrentStep();
+            }
+        } else if (e.which === 37 && currentStepIndex > 0) {
             currentStepIndex--;
             renderCurrentStep();
         }
     });
-    
-    // Initialize the page
+
+    // Listen for quiz completion to unlock “Next”
+    $(document).on('quiz:completed', updateNavButtons);
+
+    // -----------------------------------------
+    //  Init
+    // -----------------------------------------
     renderCurrentStep();
 }); 

@@ -50,6 +50,21 @@
       {
         "type": "tip",
         "text": "Remember that your triangle doesn't have to be perfectly symmetrical. A slight asymmetry can create a more natural, organic look while still maintaining the overall triangular structure."
+      }
+      ,{
+        "type": "quiz",
+        "questions": [
+          {
+            "text": "Which insertion establishes the main structure of a balanced arrangement?",
+            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "answer": 1
+          },
+          {
+            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
+            "options": ["15°", "30°", "45°", "75°"],
+            "answer": 2
+          }
+        ]
       },
       {
         "type": "conclusion",
@@ -113,6 +128,21 @@
         ]
       },
       {
+        "type": "quiz",
+        "questions": [
+          {
+            "text": "Which insertion establishes the main structure of a balanced arrangement?",
+            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "answer": 1
+          },
+          {
+            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
+            "options": ["15°", "30°", "45°", "75°"],
+            "answer": 2
+          }
+        ]
+      },
+      {
         "type": "tip",
         "text": "When placing auxiliaries, step back frequently to view your arrangement from different angles. This helps you identify gaps and ensure balanced distribution throughout the arrangement."
       },
@@ -167,6 +197,21 @@
           {
             "title": "Finishes the Design with Elegance",
             "text": "Linear flowers add a refined, sophisticated touch that elevates the entire arrangement from simple to striking."
+          }
+        ]
+      },
+      {
+        "type": "quiz",
+        "questions": [
+          {
+            "text": "Which insertion establishes the main structure of a balanced arrangement?",
+            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "answer": 1
+          },
+          {
+            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
+            "options": ["15°", "30°", "45°", "75°"],
+            "answer": 2
           }
         ]
       },
@@ -231,6 +276,21 @@
       {
         "type": "tip",
         "text": "Don't overcrowd your arrangement with foliage. The greenery should enhance your flowers, not overwhelm them. Add foliage gradually, stepping back frequently to assess the overall balance."
+      },
+      {
+        "type": "quiz",
+        "questions": [
+          {
+            "text": "Which insertion establishes the main structure of a balanced arrangement?",
+            "options": ["Crescent", "Triangle", "Cascade", "Radial"],
+            "answer": 1
+          },
+          {
+            "text": "What is the recommended angle for the primary stem in a triangle insertion?",
+            "options": ["15°", "30°", "45°", "75°"],
+            "answer": 2
+          }
+        ]
       },
       {
         "type": "conclusion",
