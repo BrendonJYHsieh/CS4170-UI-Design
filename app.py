@@ -20,6 +20,23 @@ def home():
     return render_template('home.html')
 
 # -------------------------------------------------
+#  Know Your Blooms (NEW)
+# -------------------------------------------------
+@app.route('/know_your_blooms')
+def know_your_blooms():
+    # Create a session if needed
+    if 'user_id' not in session:
+        session['user_id'] = str(uuid.uuid4())
+        session['progress'] = {}
+    
+    # Record that user has viewed know your blooms
+    session['progress'].setdefault('viewed_know_your_blooms', False)
+    session['progress']['viewed_know_your_blooms'] = True
+    session.modified = True
+    
+    return render_template('know_your_blooms.html')
+
+# -------------------------------------------------
 #  Lesson pages  /learn/<n>
 # -------------------------------------------------
 @app.route('/learn/<int:lesson_number>')
@@ -50,7 +67,7 @@ def learn(lesson_number):
     )
 
 # -------------------------------------------------
-#  NEW – Quiz pages  /quiz/<n>
+#  Quiz pages  /quiz/<n>
 # -------------------------------------------------
 @app.route('/quiz/<int:lesson_number>')
 def quiz(lesson_number):
@@ -107,6 +124,28 @@ def get_progress():
     if 'user_id' not in session:
         return jsonify({'error': 'No session found'}), 400
     return jsonify(session['progress'])
+
+# -------------------------------------------------
+#  Record bloom quiz completion (NEW)
+# -------------------------------------------------
+@app.route('/record_bloom_quiz', methods=['POST'])
+def record_bloom_quiz():
+    if 'user_id' not in session:
+        return jsonify({'error': 'No session found'}), 400
+    
+    data = request.json
+    score = data.get('score')
+    passed = data.get('passed', False)
+    
+    if score is None:
+        return jsonify({'error': 'Missing score data'}), 400
+    
+    session['progress'].setdefault('bloom_quiz', {})
+    session['progress']['bloom_quiz']['score'] = score
+    session['progress']['bloom_quiz']['passed'] = passed
+    session.modified = True
+    
+    return jsonify({'success': True})
 
 # -------------------------------------------------
 #  Run

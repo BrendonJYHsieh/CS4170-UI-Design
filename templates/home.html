@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floral Artistry Academy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <div class="container-fluid home-container">
         <div class="row justify-content-center">
@@ -14,12 +17,40 @@
                 <div class="home-content">
                     <h1 class="mb-4">Floral Artistry Academy</h1>
                     <h3 class="mb-5">Master the Art of Flower Arrangement</h3>
-                    
+
                     <div class="home-description mb-5">
                         <p class="lead">Welcome to your journey into the beautiful world of flower arrangement!</p>
-                        <p>Our interactive lessons will guide you through professional techniques to create stunning floral designs. You'll learn through clear instructions, beautiful visuals, and expert tips at each step.</p>
-                        
+                        <p>Our interactive lessons will guide you through professional techniques to create stunning
+                            floral designs. You'll learn through clear instructions, beautiful visuals, and expert tips
+                            at each step.</p>
+
                         <div class="row mt-5 mb-4">
+                            <!-- NEW: Know Your Blooms card -->
+                            <div class="col-md-12 mb-4">
+                                <div class="topic-card special-card">
+                                    <div class="d-flex align-items-center">
+                                        <div class="topic-icon me-3">
+                                            <i class="bi bi-flower1" style="font-size: 2rem; color: #28a745;"></i>
+                                        </div>
+                                        <div class="text-start">
+                                            <h4>Know Your Blooms</h4>
+                                            <p>Learn the language of flowers and how to select the perfect blooms for
+                                                every occasion</p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <a href="{{ url_for('know_your_blooms') }}" class="btn btn-outline-success">
+                                            Start Here <i class="bi bi-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Course modules -->
+                            <div class="col-md-12 mt-2 mb-3">
+                                <h4 class="section-divider">Arrangement Techniques</h4>
+                            </div>
+
                             <div class="col-md-3">
                                 <div class="topic-card">
                                     <div class="topic-number">1</div>
@@ -49,20 +80,27 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        <p class="mt-4">By the end of these lessons, you'll have the skills to create professional-looking arrangements for any occasion!</p>
+
+                        <p class="mt-4">By the end of these lessons, you'll have the skills to create
+                            professional-looking arrangements for any occasion!</p>
                     </div>
-                    
-                    <a href="{{ url_for('learn', lesson_number=1) }}" class="btn btn-lg btn-primary start-btn">
-                        Begin Your Floral Journey
-                    </a>
+
+                    <div class="button-group">
+                        <a href="{{ url_for('know_your_blooms') }}" class="btn btn-lg btn-success me-3">
+                            <i class="bi bi-flower1 me-2"></i>Learn About Flowers
+                        </a>
+                        <a href="{{ url_for('learn', lesson_number=1) }}" class="btn btn-lg btn-primary start-btn">
+                            Begin Arrangement Lessons <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
-</html> 
+
+</html>

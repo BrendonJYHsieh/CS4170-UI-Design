@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Blooms - Floral Artistry Academy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container-fluid learn-container">
+        <div class="row">
+            <!-- Navigation Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-content">
+                    <h3 class="mb-4 text-center">Floral Artistry</h3>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="5">
+                            Intro
+                        </div>
+                    </div>
+                    <ul class="nav flex-column lesson-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('know_your_blooms') }}">
+                                Know Your Blooms
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('learn', lesson_number=1) }}">
+                                1. Triangle Insertion
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('learn', lesson_number=2) }}">
+                                2. Auxiliary Placement
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('learn', lesson_number=3) }}">
+                                3. Linear Elements
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('learn', lesson_number=4) }}">
+                                4. Foliage Integration
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mt-5 text-center">
+                        <a href="{{ url_for('home') }}" class="btn btn-outline-light">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-md-9 main-content">
+                <div class="lesson-header">
+                    <h1>Know Your Blooms</h1>
+                    <p class="lead">Understanding flower meanings and occasion-appropriate selections</p>
+                </div>
+
+                <div class="lesson-content">
+                    <!-- Introduction Section -->
+                    <div class="content-step intro">
+                        <h3>The Language of Flowers</h3>
+                        <p>Before we dive into arrangement techniques, it's important to understand the symbolic
+                            meanings behind different flowers and how to select the right blooms for specific occasions.
+                            This knowledge will elevate your floral designs from merely beautiful to deeply meaningful
+                            and perfectly appropriate.</p>
+                        <p>Flowers have been used to communicate feelings and messages for centuries. This tradition,
+                            known as "floriography" or the language of flowers, became especially popular during the
+                            Victorian era when direct expressions of emotion were often constrained by social etiquette.
+                        </p>
+                    </div>
+
+                    <!-- Popular Blooms Section -->
+                    <div class="content-step">
+                        <h3 class="mb-4">Popular Blooms and Their Meanings</h3>
+                        <div class="row" id="bloom-cards-container">
+                            <!-- Rose -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/rose.jpg') }}" alt="Roses">
+                                        <span class="bloom-badge badge bg-danger">Most Popular</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Roses</h5>
+                                        <p class="bloom-meaning">Love, respect, courage (varies by color)</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>Romantic occasions</li>
+                                                <li>Anniversaries</li>
+                                                <li>Weddings</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lily -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/lily.jpg') }}" alt="Lilies">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Lilies</h5>
+                                        <p class="bloom-meaning">Purity, rebirth, elegance</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>Sympathy arrangements</li>
+                                                <li>Easter celebrations</li>
+                                                <li>Weddings</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tulip -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/tulip.jpg') }}" alt="Tulips">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Tulips</h5>
+                                        <p class="bloom-meaning">Perfect love, new beginnings</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>Spring celebrations</li>
+                                                <li>Birthdays</li>
+                                                <li>New home gifts</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sunflower -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/sunflower.jpg') }}"
+                                            alt="Sunflowers">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Sunflowers</h5>
+                                        <p class="bloom-meaning">Adoration, loyalty, longevity</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>Summer celebrations</li>
+                                                <li>Congratulations</li>
+                                                <li>Friendship gestures</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Daisy -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/daisy.jpg') }}" alt="Daisies">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Daisies</h5>
+                                        <p class="bloom-meaning">Innocence, purity, loyal love</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>New baby arrangements</li>
+                                                <li>Children's celebrations</li>
+                                                <li>Cheerful get-well bouquets</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Orchid -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card bloom-card">
+                                    <div class="bloom-img-container">
+                                        <img src="{{ url_for('static', filename='images/orchid.jpg') }}" alt="Orchids">
+                                        <span class="bloom-badge badge bg-info">Elegant</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="bloom-title">Orchids</h5>
+                                        <p class="bloom-meaning">Luxury, beauty, strength</p>
+                                        <div class="bloom-occasions">
+                                            <strong>Perfect for:</strong>
+                                            <ul>
+                                                <li>Sophisticated gifts</li>
+                                                <li>Housewarmings</li>
+                                                <li>Business arrangements</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Occasions Section -->
+                    <div class="occasion-section p-4">
+                        <h3 class="occasion-header mb-4">Flowers for Special Occasions</h3>
+                        <div class="row">
+                            <!-- Weddings -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-ring"></i></span>
+                                    <h4 class="occasion-title">Weddings</h4>
+                                    <p>Traditional wedding flowers symbolize love, purity, and new beginnings:</p>
+                                    <div>
+                                        <span class="flower-tag">Roses</span>
+                                        <span class="flower-tag">Peonies</span>
+                                        <span class="flower-tag">Lilies</span>
+                                        <span class="flower-tag">Stephanotis</span>
+                                        <span class="flower-tag">Hydrangeas</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sympathy -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-heart"></i></span>
+                                    <h4 class="occasion-title">Sympathy</h4>
+                                    <p>Flowers for sympathy arrangements convey respect, remembrance, and comfort:</p>
+                                    <div>
+                                        <span class="flower-tag">White Lilies</span>
+                                        <span class="flower-tag">Chrysanthemums</span>
+                                        <span class="flower-tag">Carnations</span>
+                                        <span class="flower-tag">Gladioli</span>
+                                        <span class="flower-tag">White Roses</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Birthdays -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-gift"></i></span>
+                                    <h4 class="occasion-title">Birthdays</h4>
+                                    <p>Birthday flowers should be vibrant and celebratory, reflecting the recipient's
+                                        personality:</p>
+                                    <div>
+                                        <span class="flower-tag">Gerbera Daisies</span>
+                                        <span class="flower-tag">Sunflowers</span>
+                                        <span class="flower-tag">Tulips</span>
+                                        <span class="flower-tag">Carnations</span>
+                                        <span class="flower-tag">Birthday Month Flower</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Anniversary -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-calendar-heart"></i></span>
+                                    <h4 class="occasion-title">Anniversaries</h4>
+                                    <p>Different wedding anniversaries have traditional flower associations:</p>
+                                    <div>
+                                        <span class="flower-tag">1st: Carnations</span>
+                                        <span class="flower-tag">5th: Daisies</span>
+                                        <span class="flower-tag">10th: Daffodils</span>
+                                        <span class="flower-tag">25th: Iris</span>
+                                        <span class="flower-tag">50th: Yellow Roses</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Get Well -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-heart-pulse"></i></span>
+                                    <h4 class="occasion-title">Get Well</h4>
+                                    <p>These flowers bring cheer and hope during recovery:</p>
+                                    <div>
+                                        <span class="flower-tag">Daisies</span>
+                                        <span class="flower-tag">Daffodils</span>
+                                        <span class="flower-tag">Peonies</span>
+                                        <span class="flower-tag">Gerberas</span>
+                                        <span class="flower-tag">Sunflowers</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Congratulations -->
+                            <div class="col-md-4 mb-4">
+                                <div class="occasion-card">
+                                    <span class="occasion-icon"><i class="bi bi-trophy"></i></span>
+                                    <h4 class="occasion-title">Congratulations</h4>
+                                    <p>Celebratory arrangements to mark achievements and successes:</p>
+                                    <div>
+                                        <span class="flower-tag">Stargazer Lilies</span>
+                                        <span class="flower-tag">Yellow Roses</span>
+                                        <span class="flower-tag">Sunflowers</span>
+                                        <span class="flower-tag">Iris</span>
+                                        <span class="flower-tag">Alstroemeria</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Section -->
+                    <div class="content-step">
+                        <h3 class="mb-4">Test Your Knowledge</h3>
+                        <div class="bloom-quiz">
+                            <div class="quiz-question">
+                                <p><strong>Q1. Which flower symbolizes purity and rebirth?</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q0" id="q0o0" value="0">
+                                    <label class="form-check-label" for="q0o0">Rose</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q0" id="q0o1" value="1">
+                                    <label class="form-check-label" for="q0o1">Lily</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q0" id="q0o2" value="2">
+                                    <label class="form-check-label" for="q0o2">Daisy</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q0" id="q0o3" value="3">
+                                    <label class="form-check-label" for="q0o3">Tulip</label>
+                                </div>
+                                <div class="feedback" id="feedback-q0"></div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <p><strong>Q2. What flowers are traditionally associated with 50th wedding
+                                        anniversaries?</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1o0" value="0">
+                                    <label class="form-check-label" for="q1o0">Red Roses</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1o1" value="1">
+                                    <label class="form-check-label" for="q1o1">Daisies</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1o2" value="2">
+                                    <label class="form-check-label" for="q1o2">Yellow Roses</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q1" id="q1o3" value="3">
+                                    <label class="form-check-label" for="q1o3">Orchids</label>
+                                </div>
+                                <div class="feedback" id="feedback-q1"></div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <p><strong>Q3. Which flower is most appropriate for sympathy arrangements?</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2o0" value="0">
+                                    <label class="form-check-label" for="q2o0">Sunflowers</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2o1" value="1">
+                                    <label class="form-check-label" for="q2o1">White Lilies</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2o2" value="2">
+                                    <label class="form-check-label" for="q2o2">Gerbera Daisies</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q2" id="q2o3" value="3">
+                                    <label class="form-check-label" for="q2o3">Tulips</label>
+                                </div>
+                                <div class="feedback" id="feedback-q2"></div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <p><strong>Q4. What do sunflowers primarily symbolize?</strong></p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3o0" value="0">
+                                    <label class="form-check-label" for="q3o0">Grief</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3o1" value="1">
+                                    <label class="form-check-label" for="q3o1">Adoration and loyalty</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3o2" value="2">
+                                    <label class="form-check-label" for="q3o2">Purity</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="q3" id="q3o3" value="3">
+                                    <label class="form-check-label" for="q3o3">Wealth</label>
+                                </div>
+                                <div class="feedback" id="feedback-q3"></div>
+                            </div>
+                        </div>
+
+                        <div class="navigation-buttons mt-4">
+                            <button id="check-answers-btn" class="btn btn-success">Check Answers</button>
+                            <div id="quiz-result" class="mt-3"></div>
+                            <a href="{{ url_for('learn', lesson_number=1) }}" class="btn btn-primary"
+                                id="next-lesson-btn" style="display: none;">
+                                Continue to Triangle Insertion <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/blooms.js') }}"></script>
+</body>
+
+</html>
