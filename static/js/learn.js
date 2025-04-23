@@ -1,111 +1,137 @@
-/*  learn.js  – lesson navigation & (now) quiz support            */
-/*  Requires quiz.js to be loaded BEFORE this script in learn.html */
 
-$(document).ready(function () {
-    // -----------------------------------------
-    //  Variables
-    // -----------------------------------------
+$(document).ready(function() {
     let currentStepIndex = 0;
-    const lessonNumber   = $('#lesson-number').val();
+    const lessonNumber = $('#lesson-number').val();
 
-    // -----------------------------------------
-    //  Rendering
-    // -----------------------------------------
     function renderCurrentStep() {
-        const step = lessonContent[currentStepIndex];
+        const currentStep = lessonContent[currentStepIndex];
+        let contentHtml = '';
 
-        // Delegate quiz steps to Quiz manager
-        if (step.type === 'quiz') {
-            Quiz.render(step);
-            afterRender();        // record progress, etc.
-            return;
-        }
-
-        let html = '';
-
-        if (step.type === 'introduction') {
-            html = `
+        if (currentStep.type === 'introduction') {
+            contentHtml = `
                 <div class="content-step intro">
-                  <h3>Introduction</h3>
-                  <p>${step.text}</p>
-                </div>`;
-        } else if (step.type === 'instruction') {
-            html = `
-                <div class="content-step instruction">
-                  <div class="instruction-container">
-                    <h3 class="instruction-title">${step.title}</h3>
-                    <p>${step.text}</p>
-                    ${
-                        step.image
-                            ? `<img src="/static/images/${step.image}" 
-                                    class="step-image" 
-                                    alt="${step.title}">`
-                            : ''
-                    }
-                    <div class="instruction-detail">
-                      <strong>Expert Tip:</strong> ${step.detail}
+                    <h3>Introduction</h3>
+                    <p>${currentStep.text}</p>
+                </div>
+            `;
+        } else if (currentStep.type === 'instruction') {
+
+            if (lessonNumber == 2 && currentStep.title.includes("Trim Stems Gradually")) {
+                contentHtml = `
+                    <div class="content-step instruction">
+                        <div class="instruction-container">
+                            <h3 class="instruction-title">${currentStep.title}</h3>
+                            <p>${currentStep.text}</p>
+
+                            <!-- Green Area + Slider -->
+                            <div class="arrangement-area" style="width:400px; height:300px; background:#e6f9e6; border:2px dashed #88cc88; display:flex; align-items:center; justify-content:center; margin: 20px 0;">
+                                <img id="step-image" src="/static/images/step2_auxiliary1.png" style="max-width:100%; max-height:100%;">
+                            </div>
+
+                            <!-- Slider -->
+                            <input type="range" min="1" max="3" value="1" id="image-slider" style="width: 45%;">
+
+                            <div class="instruction-detail" style="margin-top:15px;">
+                                <strong>Expert Tip:</strong> ${currentStep.detail}
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>`;
-        } else if (step.type === 'explanation') {
-            let points = '';
-            step.points.forEach(p => {
-                points += `
-                   <div class="explanation-point">
-                     <h5 class="explanation-title">${p.title}</h5>
-                     <p>${p.text}</p>
-                   </div>`;
+                `;
+            } else {
+                // 其他普通 instruction
+                contentHtml = `
+                    <div class="content-step instruction">
+                        <div class="instruction-container">
+                            <h3 class="instruction-title">${currentStep.title}</h3>
+                            <p>${currentStep.text}</p>
+
+                            <div class="arrangement-area" style="width:400px; height:300px; background:#e6f9e6; border:2px dashed #88cc88; display:flex; align-items:center; justify-content:center; margin: 20px 0;">
+                                <img id="step-image" src="/static/images/${currentStep.image}" alt="${currentStep.title}" style="max-width:100%; max-height:100%; display:none;">
+                            </div>
+
+                            <button id="show-image-btn" class="btn btn-success">Show Arrangement Step</button>
+
+                            <div class="instruction-detail" style="margin-top:15px;">
+                                <strong>Expert Tip:</strong> ${currentStep.detail}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        } else if (currentStep.type === 'explanation') {
+            let pointsHtml = '';
+            currentStep.points.forEach(point => {
+                pointsHtml += `
+                    <div class="explanation-point">
+                        <h5 class="explanation-title">${point.title}</h5>
+                        <p>${point.text}</p>
+                    </div>
+                `;
             });
-            html = `
+            contentHtml = `
                 <div class="content-step explanation">
-                  <h3>${step.title}</h3>
-                  <div class="explanation-container">${points}</div>
-                </div>`;
-        } else if (step.type === 'tip') {
-            html = `
+                    <h3>${currentStep.title}</h3>
+                    <div class="explanation-container">
+                        ${pointsHtml}
+                    </div>
+                </div>
+            `;
+        } else if (currentStep.type === 'tip') {
+            contentHtml = `
                 <div class="content-step tip">
-                  <div class="tip-container">${step.text}</div>
-                </div>`;
-        } else if (step.type === 'conclusion') {
-            html = `
+                    <div class="tip-container">
+                        ${currentStep.text}
+                    </div>
+                </div>
+            `;
+        } else if (currentStep.type === 'conclusion') {
+            contentHtml = `
                 <div class="content-step conclusion">
-                  <div class="conclusion-container">
-                    <h3>Congratulations!</h3>
-                    <p>${step.text}</p>
-                  </div>
-                </div>`;
+                    <div class="conclusion-container">
+                        <h3>Congratulations!</h3>
+                        <p>${currentStep.text}</p>
+                    </div>
+                </div>
+            `;
         }
 
-        $('#content-container').html(html);
-        afterRender();            // record progress, etc.
-    }
+        $('#content-container').html(contentHtml);
 
-    // Shared post‑render duties
-    function afterRender() {
-        updateNavButtons();
+
+        if (lessonNumber == 2 && currentStep.title.includes("Trim Stems Gradually")) {
+            $('#image-slider').on('input', function() {
+                const level = $(this).val();
+                $('#step-image').attr('src', `/static/images/step2_auxiliary${level}.png`);
+            });
+        } else {
+            $('#show-image-btn').on('click', function() {
+                $('#step-image').fadeIn();
+                $(this).hide();
+            });
+        }
+
+        updateNavigationButtons();
         recordProgress(currentStepIndex);
     }
 
-    // -----------------------------------------
-    //  Progress tracking (server‑side)
-    // -----------------------------------------
-    function recordProgress(stepIdx) {
+    function recordProgress(stepIndex) {
+
         $.ajax({
             url: '/record_progress',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ lesson_number: lessonNumber, step: stepIdx })
+            data: JSON.stringify({ lesson_number: lessonNumber, step: stepIndex })
         });
     }
 
-    // -----------------------------------------
-    //  Navigation buttons state
-    // -----------------------------------------
-    function updateNavButtons() {
-        // Previous
-        $('#prev-btn').prop('disabled', currentStepIndex === 0);
 
-        // Next / Finish
+    function updateNavigationButtons() {
+        if (currentStepIndex === 0) {
+            $('#prev-btn').prop('disabled', true);
+        } else {
+            $('#prev-btn').prop('disabled', false);
+        }
+
         if (currentStepIndex === lessonContent.length - 1) {
             $('#next-btn').hide();
             if ($('#next-lesson-btn').length) {
@@ -123,44 +149,36 @@ $(document).ready(function () {
         }
     }
 
-    // -----------------------------------------
-    //  Button / keyboard handlers
-    // -----------------------------------------
-    $('#prev-btn').on('click', () => {
+    $('#prev-btn').on('click', function() {
+
         if (currentStepIndex > 0) {
             currentStepIndex--;
             renderCurrentStep();
         }
     });
 
-    $('#next-btn').on('click', () => {
+
+
+    $('#next-btn').on('click', function() {
+
         if (currentStepIndex < lessonContent.length - 1) {
             currentStepIndex++;
             renderCurrentStep();
         }
     });
 
-    // keyboard arrows
-    $(document).on('keydown', e => {
+
+    $(document).on('keydown', function(e) {
         if (e.which === 39 && currentStepIndex < lessonContent.length - 1) {
-            if (
-                !(lessonContent[currentStepIndex].type === 'quiz') ||
-                Quiz.isCompleted()
-            ) {
-                currentStepIndex++;
-                renderCurrentStep();
-            }
+            currentStepIndex++;
+            renderCurrentStep();
+
         } else if (e.which === 37 && currentStepIndex > 0) {
             currentStepIndex--;
             renderCurrentStep();
         }
     });
 
-    // Listen for quiz completion to unlock “Next”
-    $(document).on('quiz:completed', updateNavButtons);
 
-    // -----------------------------------------
-    //  Init
-    // -----------------------------------------
     renderCurrentStep();
-}); 
+});
