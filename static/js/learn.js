@@ -6,6 +6,13 @@ $(document).ready(function() {
     function renderCurrentStep() {
         const currentStep = lessonContent[currentStepIndex];
         let contentHtml = '';
+        if (currentStep.type === 'quiz') {
+            Quiz.render(currentStep);
+            afterRender();
+            return;
+        }
+
+      
 
         if (currentStep.type === 'introduction') {
             contentHtml = `
@@ -109,9 +116,7 @@ $(document).ready(function() {
                 $(this).hide();
             });
         }
-
-        updateNavigationButtons();
-        recordProgress(currentStepIndex);
+        afterRender();
     }
 
     function recordProgress(stepIndex) {
@@ -122,6 +127,10 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify({ lesson_number: lessonNumber, step: stepIndex })
         });
+    }
+    function afterRender() {
+        updateNavigationButtons();
+        recordProgress(currentStepIndex);
     }
 
 
@@ -178,7 +187,7 @@ $(document).ready(function() {
             renderCurrentStep();
         }
     });
-
-
+   
+    $(document).on('quiz:completed', updateNavigationButtons);
     renderCurrentStep();
 });
