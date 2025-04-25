@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Know Your Blooms</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quiz Results</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
@@ -13,18 +13,16 @@
     <div class="container-fluid learn-container">
         <div class="row">
 
-            <!-- Sidebar / Navbar -->
+            <!-- Sidebar -->
             <div class="col-md-3 sidebar">
                 <div class="sidebar-content">
                     <h3 class="mb-4 text-center">Floral Artistry</h3>
-
                     <div class="progress mb-3">
                         <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0"
                             aria-valuemin="0" aria-valuemax="5">
                             Intro
                         </div>
                     </div>
-
                     <ul class="nav flex-column lesson-nav">
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ url_for('know_your_blooms') }}">
@@ -52,7 +50,6 @@
                             </a>
                         </li>
                     </ul>
-
                     <div class="mt-5 text-center">
                         <a href="{{ url_for('home') }}" class="btn btn-outline-light">Back to Home</a>
                     </div>
@@ -62,22 +59,30 @@
             <!-- Main Content -->
             <div class="col-md-9 main-content">
                 <div class="lesson-header">
-                    <h1>Know Your Blooms</h1>
-                    <p class="lead">Pick a section to explore:</p>
+                    <h1>Quiz Results</h1>
                 </div>
-                <div class="lesson-content text-center">
-                    <a href="{{ url_for('blooms') }}" class="btn btn-lg btn-success m-2">Popular Blooms</a>
-                    <a href="{{ url_for('occasions') }}" class="btn btn-lg btn-info    m-2">Special Occasions</a>
-                    <a href="{{ url_for('bloom_quiz',qid=1) }}" class="btn btn-lg btn-primary m-2">Take the Quiz</a>
+                <div class="lesson-content">
+                    <div class="alert {{ 'alert-success' if passed else 'alert-warning' }}">
+                        You scored {{ score }} out of {{ total }} ({{ (score/total*100)|round(0) }}%).
+                        {% if passed %}
+                        <p>Great job! You're ready to move on.</p>
+                        {% else %}
+                        <p>Review the material and try again.</p>
+                        {% endif %}
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <a href="{{ url_for('bloom_quiz', qid=1) }}" class="btn btn-outline-secondary">
+                            &larr; Retake Quiz
+                        </a>
+                        <a href="{{ url_for('learn', lesson_number=1) }}" class="btn btn-primary">
+                            Continue to Triangle Insertion &rarr;
+                        </a>
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-    <!-- Include JS if needed -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

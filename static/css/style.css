@@ -251,7 +251,7 @@ body {
     }
 }
 
-/*Triangle Insertion*/
+/* Triangle Insertion */
 .arrangement-area {
     width: 400px;
     height: 300px;
@@ -259,12 +259,10 @@ body {
     border: 2px dashed #a3d9a5;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(163, 217, 165, 0.3);
-
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px auto;
-
     transition: transform 0.3s ease;
 }
 
@@ -277,7 +275,7 @@ body {
     max-height: 90%;
 }
 
-/*slider*/
+/* Slider */
 #image-slider {
     width: 400px;
     accent-color: #4CAF50;
@@ -311,10 +309,6 @@ body {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.bloom-card:hover .bloom-img-container img {
-    transform: scale(1.1);
 }
 
 .bloom-badge {
@@ -398,7 +392,16 @@ body {
     margin: 0 5px 8px 0;
 }
 
-/* Quiz Styles for Know Your Blooms */
+/* New: occasion images */
+.occasion-images img,
+.occasion-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Quiz Styles (unused in new flow) */
 .bloom-quiz {
     background-color: #f8f9fa;
     border-radius: 15px;
@@ -439,8 +442,6 @@ body {
     margin-top: 8px;
     display: block;
 }
-
-/* Additional styles for updated homepage */
 
 /* Special card for Know Your Blooms section */
 .special-card {
