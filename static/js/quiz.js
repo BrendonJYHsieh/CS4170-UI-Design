@@ -1,13 +1,13 @@
-/*  quiz.js — multipage version  ------------------------------------------- */
+/*  quiz.js — multipage version with bar-style review badges -------------- */
 class QuizManager {
 	constructor () {
-			this.step        = null;   // current quiz block from template
-			this.idx         = 0;      // current question index
-			this.answers     = [];     // learner’s picks
-			this.completed   = false;
+			this.step      = null;
+			this.idx       = 0;
+			this.answers   = [];
+			this.completed = false;
 	}
 
-	/* Public API for quiz.html and learn.js */
+	/* ---------------- public API ---------------- */
 	render (step) {
 			this.step      = step;
 			this.idx       = 0;
@@ -17,29 +17,32 @@ class QuizManager {
 	}
 	isCompleted () { return this.completed; }
 
-	/* ---------------- private helpers ---------------- */
+	/* ---------------- helpers ---------------- */
 	showQuestion () {
-			const q        = this.step.questions[this.idx];
-			const isLast   = this.idx === this.step.questions.length - 1;
+			const q      = this.step.questions[this.idx];
+			const isLast = this.idx === this.step.questions.length - 1;
+
 			const optsHtml = q.options.map((opt, oi) => `
-					<div class="form-check">
+					<div class="form-check mb-1">
 						<input class="form-check-input" type="radio"
 									 name="q" id="opt${oi}" value="${oi}">
-						<label class="form-check-label" for="opt${oi}">${opt}</label>
+						<label class="form-check-label" for="opt${oi}">
+							${opt}
+						</label>
 					</div>`).join('');
 
 			$('#content-container').html(`
 					<div class="content-step quiz">
-						<h4 class="mb-3">Question ${this.idx + 1}/${this.step.questions.length}</h4>
-						<p class="fw-bold mb-3">${q.text}</p>
+						<h4 class="mb-4">Question ${this.idx + 1}/${this.step.questions.length}</h4>
+						<p class="fw-bold mb-4">${q.text}</p>
 						${optsHtml}
 						<button id="next-btn" class="btn btn-primary mt-3" disabled>
 							${isLast ? 'Show&nbsp;Result' : 'Next&nbsp;»'}
 						</button>
 					</div>`);
 
-			/* enable Next once an answer is chosen */
-			$('input[name="q"]').on('change', () => $('#next-btn').prop('disabled', false));
+			$('input[name="q"]').on('change', () =>
+					$('#next-btn').prop('disabled', false));
 			$('#next-btn').on('click', () => this.recordAndAdvance());
 	}
 
@@ -55,18 +58,42 @@ class QuizManager {
 			}
 	}
 
+	/* ---------------- styled review ---------------- */
 	showResult () {
 			let correct = 0;
 			this.answers.forEach((ans, i) => {
 					if (ans === this.step.questions[i].answer) correct++;
 			});
-			const pct = Math.round((correct / this.step.questions.length) * 100);
+			const pct = Math.round(
+					(correct / this.step.questions.length) * 100
+			);
+
+			const reviewHtml = this.step.questions.map((q, qi) => {
+					const userPick = this.answers[qi];
+					return `
+						<div class="card mb-4 shadow-sm">
+							<div class="card-body">
+								<p class="fw-bold mb-3">Q${qi + 1}. ${q.text}</p>
+								${q.options.map((opt, oi) => {
+											let style = '';
+											if (oi === q.answer) {
+													style = 'background-color:#d1e7dd'; /* light green */
+											} else if (oi === userPick) {
+													style = 'background-color:#f8d7da'; /* light red */
+											}
+											return `<div class="rounded p-2 mb-1" style="${style}">${opt}</div>`;
+								}).join('')}
+							</div>
+						</div>`;
+			}).join('');
 
 			$('#content-container').html(`
-					<div class="content-step quiz-result text-center">
-						<h3 class="mb-3">Quiz Complete!</h3>
-						<p class="lead">Your Score:</p>
-						<h2>${correct} / ${this.step.questions.length} (${pct}%)</h2>
+					<div class="content-step quiz-result">
+						<h3 class="text-center mb-1">Quiz Complete!</h3>
+						<p class="lead text-center">Your Score:</p>
+						<h2 class="text-center mb-5">${correct} / ${this.step.questions.length} (${pct}%)</h2>
+						<h4 class="mb-4">Review</h4>
+						${reviewHtml}
 					</div>`);
 
 			this.completed = true;
@@ -74,5 +101,5 @@ class QuizManager {
 	}
 }
 
-/* Expose a shared instance */
+/* shared instance */
 const Quiz = new QuizManager();
