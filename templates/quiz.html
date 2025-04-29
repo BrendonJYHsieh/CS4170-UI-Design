@@ -5,129 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ lesson_title }} – Quiz | Floral Artistry Academy</title>
 
-    <!-- Same CSS / icon links used in learn.html -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div id="navbar-placeholder"></div>
-    <div class="container-fluid learn-container">
-        <div class="row">
+<div id="navbar-placeholder"></div>
 
-            <!-- Sidebar (identical to learn.html) -->
-            <div class="col-md-3 sidebar">
-                <div class="sidebar-content">
-                    <h3 class="mb-4 text-center">Floral Artistry</h3>
+<div class="container-fluid learn-container">
+    <div class="row">
+        <!-- Sidebar (identical to learn.html) -->
+        <div class="col-md-3 sidebar">
+            <div class="sidebar-content">
+                <h3 class="mb-4 text-center">Floral Artistry</h3>
 
-                    <!-- Progress bar (same style) -->
-                    <div class="progress mb-3">
-                        <div class="progress-bar" role="progressbar"
-                             style="width: {{ (lesson_number / 4) * 100 }}%;"
-                             aria-valuenow="{{ lesson_number }}"
-                             aria-valuemin="0" aria-valuemax="4">
-                             Lesson {{ lesson_number }}/4
-                        </div>
+                <div class="progress mb-3">
+                    <div class="progress-bar" role="progressbar"
+                         style="width: {{ (lesson_number / 4) * 100 }}%;"
+                         aria-valuenow="{{ lesson_number }}"
+                         aria-valuemin="0" aria-valuemax="4">
+                        Lesson {{ lesson_number }}/4
                     </div>
+                </div>
 
-                    <!-- Lesson links (same markup) -->
-                    <ul class="nav flex-column lesson-nav">
-                        <li class="nav-item">
-                            <a class="nav-link {% if lesson_number == 1 %}active{% endif %}"
-                               href="{{ url_for('learn', lesson_number=1) }}">
-                               1. Triangle Insertion
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if lesson_number == 2 %}active{% endif %}"
-                               href="{{ url_for('learn', lesson_number=2) }}">
-                               2. Auxiliary Placement
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if lesson_number == 3 %}active{% endif %}"
-                               href="{{ url_for('learn', lesson_number=3) }}">
-                               3. Linear Elements
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if lesson_number == 4 %}active{% endif %}"
-                               href="{{ url_for('learn', lesson_number=4) }}">
-                               4. Foliage Integration
-                            </a>
-                        </li>
-                    </ul>
+                <ul class="nav flex-column lesson-nav">
+                    <li class="nav-item"><a class="nav-link"
+                                            href="{{ url_for('learn', lesson_number=1) }}">1. Triangle Insertion</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            href="{{ url_for('learn', lesson_number=2) }}">2. Auxiliary Placement</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            href="{{ url_for('learn', lesson_number=3) }}">3. Linear Elements</a></li>
+                    <li class="nav-item"><a class="nav-link"
+                                            href="{{ url_for('learn', lesson_number=4) }}">4. Foliage Integration</a></li>
+                </ul>
 
-                    <div class="mt-5 text-center">
-                        <a href="{{ url_for('home') }}"
-                           class="btn btn-outline-light">Back to Home</a>
-                    </div>
+                <div class="mt-5 text-center">
+                    <a href="{{ url_for('home') }}" class="btn btn-outline-light">Back to Home</a>
                 </div>
             </div>
+        </div>
 
-            <!-- Main content area -->
-            <div class="col-md-9 main-content">
-                <div class="lesson-header">
-                    <h1>{{ lesson_title }} – Quiz</h1>
-                    <p class="lead">Test your understanding before moving on.</p>
-                </div>
+        <!-- Quiz content -->
+        <div class="col-md-9 main-content">
+            <div class="lesson-header">
+                <h1>{{ lesson_title }} – Quiz</h1>
+                <p class="lead">Test your understanding before moving on.</p>
+            </div>
 
-                <div class="lesson-content">
-                    <!-- Quiz will be injected here by quiz.js -->
-                    <div id="content-container"></div>
+            <div class="lesson-content">
+                <div id="content-container"></div>
 
-                    <!-- Navigation buttons (match style of learn.html) -->
-                    <div class="navigation-buttons mt-4">
-                        <a href="{{ url_for('learn', lesson_number=lesson_number) }}"
-                           class="btn btn-secondary">
-                           <i class="bi bi-arrow-left"></i> Back to Lesson
-                        </a>
+                <div class="navigation-buttons mt-4">
+                    <a href="{{ url_for('learn', lesson_number=lesson_number) }}"
+                       class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Back to Lesson
+                    </a>
 
-                        {% if next_lesson %}
-                        <a id="next-lesson-btn"
-                           href="{{ url_for('learn', lesson_number=next_lesson) }}"
-                           class="btn btn-success" style="display:none;">
-                           Next Lesson <i class="bi bi-flower1"></i>
-                        </a>
-                        {% else %}
-                        <a id="finish-btn"
-                           href="{{ url_for('home') }}"
-                           class="btn btn-success" style="display:none;">
-                           Finish Course <i class="bi bi-check-circle"></i>
-                        </a>
-                        {% endif %}
-                    </div>
+                    {% if next_lesson %}
+                    <a id="next-lesson-btn"
+                       href="{{ url_for('learn', lesson_number=next_lesson) }}"
+                       class="btn btn-success" style="display:none;">
+                        Next Lesson <i class="bi bi-flower1"></i>
+                    </a>
+                    {% else %}
+                    <a id="finish-btn"
+                       href="{{ url_for('home') }}"
+                       class="btn btn-success" style="display:none;">
+                        Finish Course <i class="bi bi-check-circle"></i>
+                    </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Scripts (same order / libs as learn.html) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Pass the quiz step to JS -->
-    <script>
-        const quizData = {{ quiz|tojson }};
-    </script>
-
-    <!-- Re-use existing quiz manager -->
-    <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            Quiz.render(quizData);
-            // Show "Next Lesson" / "Finish" when quiz completed
-            $(document).on('quiz:completed', () => {
-                $('#next-lesson-btn, #finish-btn').show();
-            });
+<script>
+    const quizData = {{ quiz|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+<script>
+    $(function () {
+        Quiz.render(quizData);
+        $(document).on('quiz:completed', () => {
+            $('#next-lesson-btn, #finish-btn').show();
         });
-    </script>
-    <script>
-        fetch('/static/navbar.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-          });
-      </script>
+    });
+</script>
+<script>
+    fetch('/static/navbar.html')
+        .then(r => r.text())
+        .then(html => { document.getElementById('navbar-placeholder').innerHTML = html; });
+</script>
 </body>
 </html>
