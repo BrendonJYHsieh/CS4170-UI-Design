@@ -18,3 +18,5 @@ __pycache__/
 
 # Ignore other potential files
 *.log
+
+.history/
