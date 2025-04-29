@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-
+    <div id="navbar-placeholder"></div>
     <div class="container-fluid learn-container">
         <div class="row">
 
@@ -122,5 +122,12 @@
             });
         });
     </script>
+    <script>
+        fetch('/static/navbar.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+          });
+      </script>
 </body>
 </html>
