@@ -102,17 +102,24 @@ def bloom_quiz(qid):
         total=total
     )
 
-@app.route('/bloom_quiz_result')
+@app.route("/bloom_quiz_result")
 def bloom_quiz_result():
-    score = session.get('quiz_score', 0)
-    total = len(quiz_data)
+    score  = session.get("quiz_score", 0)
+    total  = len(quiz_data)
     passed = (score / total) >= 0.75
+
+    # get the learner’s picks that were stored while they took the quiz
+    answers = session.get("quiz_answers", {})     # e.g. {"1":"2","2":"0", ...}
+
     return render_template(
-        'bloom_quiz_result.html',
+        "bloom_quiz_result.html",
         score=score,
         total=total,
-        passed=passed
+        passed=passed,
+        answers=answers,        #  ← new
+        quiz_data=quiz_data     #  ← new
     )
+
 
 # -------------------------------------------------
 #  NEW  —  Lesson Quiz  /quiz/<lesson_number>
