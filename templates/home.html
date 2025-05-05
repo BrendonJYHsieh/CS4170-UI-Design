@@ -2,128 +2,40 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floral Artistry Academy</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floral Artistry Academy</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body>
-    <div id="navbar-placeholder"></div>
-    <div class="container-fluid home-container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 text-center">
-                <div class="home-content">
-                    <h1 class="mb-4">Floral Artistry Academy</h1>
-                    <h3 class="mb-5">Master the Art of Flower Arrangement</h3>
+  <div id="navbar-placeholder"></div>
 
-                    <div class="home-description mb-5">
-                        <p class="lead">Welcome to your journey into the beautiful world of flower arrangement!</p>
-                        <p>Our interactive lessons will guide you through professional techniques to create stunning
-                            floral designs. You'll learn through clear instructions, beautiful visuals, and expert tips
-                            at each step.</p>
-
-                            <div class="row justify-content-center mt-5 mb-4">
-                                <div class="col-md-12 mb-3 text-center">
-                                    <h4 class="section-divider">First: Know Blooms</h4>
-                                </div>
-                        
-                                <div class="col-md-4 mb-4">
-
-                                        <div class="topic-card text-center">
-                                            <div class="topic-number">1</div>
-                                            <h4>Know Your Blooms</h4>
-                                            <p>Learn the language of flowers and how to select the perfect blooms for every occasion.</p>
-                                        </div>
-
-                                </div>
-                        
-                                <div class="col-md-4 mb-4">
-
-                                        <div class="topic-card text-center">
-                                            <div class="topic-number">2</div>
-                                            <h4>Know Your Occasions</h4>
-                                            <p>Learn which flowers match special moments like weddings, birthdays, sympathy, and congratulations.</p>
-                                        </div>
-
-                                </div>
-                            </div>
-                        
-                            <!-- Second: Arrangement Techniques Section -->
-                            <div class="row justify-content-center mt-5 mb-4">
-                                <div class="col-md-12 mb-3 text-center">
-                                    <h4 class="section-divider">Second: Arrangement Techniques</h4>
-                                </div>
-                        
-                                <div class="col-md-3 mb-4">
-                                    <div class="topic-card text-center">
-                                        <div class="topic-number">3</div>
-                                        <h4>Triangle Insertion</h4>
-                                        <p>The foundation of balanced arrangements</p>
-                                    </div>
-                                </div>
-                        
-                                <div class="col-md-3 mb-4">
-                                    <div class="topic-card text-center">
-                                        <div class="topic-number">4</div>
-                                        <h4>Auxiliary Placement</h4>
-                                        <p>Adding depth and fullness</p>
-                                    </div>
-                                </div>
-                        
-                                <div class="col-md-3 mb-4">
-                                    <div class="topic-card text-center">
-                                        <div class="topic-number">5</div>
-                                        <h4>Linear Elements</h4>
-                                        <p>Creating height and movement</p>
-                                    </div>
-                                </div>
-                        
-                                <div class="col-md-3 mb-4">
-                                    <div class="topic-card text-center">
-                                        <div class="topic-number">6</div>
-                                        <h4>Foliage Integration</h4>
-                                        <p>Unifying your design with greenery</p>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
-
-                        <p class="mt-4">By the end of these lessons, you'll have the skills to create
-                            professional-looking arrangements for any occasion!</p>
-                    </div>
-
-                    <div class="button-group">
-                        <a href="{{ url_for('know_your_blooms') }}" class="btn btn-lg btn-primary start-btn">
-                            <i class="bi bi-flower1 me-2   "></i>Start to Learn
-                        </a>
-                      
-
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid hero-no-card">
+    <div class="overlay"></div>
+    <div class="content-center text-center text-white">
+      <h1 class="display-3 fw-bold">Floral Artistry Academy</h1>
+      <p class="lead mb-6 subtitle">Master the Art of Flower Arrangement</p>
+      <p class="mb-5 description">Welcome to your journey into the beautiful world of flower arrangement!</p>
+      <a href="{{ url_for('know_your_blooms') }}" class="btn btn-light btn-lg px-4 py-2">
+        <i class="bi bi-flower1 me-2"></i>Start to Learn
+      </a>
     </div>
+  </div>
 
-    <!-- unchanged homepage JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script>
-
-        fetch('/static/navbar.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('navbar-placeholder').innerHTML = data;
-          });
-      </script>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script>
+    fetch('/static/navbar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
 </body>
 
 </html>
