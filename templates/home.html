@@ -17,14 +17,112 @@
   <div class="container-fluid hero-no-card">
     <div class="overlay"></div>
     <div class="content-center text-center text-white">
-      <h1 class="display-3 fw-bold">Floral Artistry Academy</h1>
-      <p class="lead mb-6 subtitle">Master the Art of Flower Arrangement</p>
-      <p class="mb-5 description">Welcome to your journey into the beautiful world of flower arrangement!</p>
-      <a href="{{ url_for('know_your_blooms') }}" class="btn btn-light btn-lg px-4 py-2">
+      <h1 class="display-3 fw-bold mb-4">Floral Artistry Academy</h1>
+      <p class="lead mb-5 subtitle" style="margin-bottom: 2.5rem !important;">Master the Art of Flower Arrangement</p>
+      <p class="mb-5 description" style="margin-bottom: 3rem !important;">Welcome to your journey into the beautiful world of flower arrangement!</p>
+      <a href="{{ url_for('know_your_blooms') }}" class="btn btn-light btn-lg px-4 py-2 mb-5">
         <i class="bi bi-flower1 me-2"></i>Start to Learn
       </a>
+      
+      <!-- Interactive Florist Section -->
+      <div class="d-flex flex-row justify-content-center align-items-center mt-5 mb-5 gap-5 florist-section-loose">
+
+        <div class="florist-container position-relative d-flex flex-column align-items-center">
+          <img src="/static/images/florist2.png" alt="Florist 2" class="florist-img mb-3" />
+          <div class="florist-dialogue dialogue-ben" id="dialogue2">
+            <strong>Florist Ben</strong><br />
+            Know Your Blooms and creative floral designs for special occasions!
+          </div>
+          <span class="fw-bold">Florist Ben</span>
+        </div>
+        <div class="florist-container position-relative d-flex flex-column align-items-center">
+          <img src="/static/images/florist1.png" alt="Florist 1" class="florist-img mb-3" />
+          <div class="florist-dialogue dialogue-anna" id="dialogue1">
+            <strong>Florist Anna</strong><br />
+            Learn the basics of flower arrangement!
+          </div>
+          <span class="fw-bold">Florist Anna</span>
+        </div>
+      </div>
     </div>
   </div>
+
+  <style>
+    .florist-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.2s;
+      margin-bottom: 1.5rem;
+    }
+    .florist-img:hover {
+      transform: scale(1.05);
+    }
+    .florist-dialogue {
+      display: none;
+      position: absolute;
+      background: #fcfbf3;
+      color: #333;
+      border-radius: 40px 40px 40px 40px/60px 60px 40px 40px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      z-index: 10;
+      min-width: 240px;
+      font-size: 1.08rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .dialogue-ben {
+      bottom: 100%;
+      left: 0;
+      transform: translateX(-80%) rotate(-6deg);
+      margin-bottom: 32px;
+    }
+    .dialogue-ben::after {
+      content: '';
+      position: absolute;
+      bottom: -22px;
+      left: 30%;
+      transform: rotate(25deg);
+      width: 44px;
+      height: 28px;
+      background: #fcfbf3;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      z-index: -1;
+    }
+    .dialogue-anna {
+      bottom: 100%;
+      right: 0;
+      left: auto;
+      transform: translateX(80%) rotate(6deg);
+      margin-bottom: 32px;
+    }
+    .dialogue-anna::after {
+      content: '';
+      position: absolute;
+      bottom: -22px;
+      right: 30%;
+      left: auto;
+      transform: rotate(-25deg);
+      width: 44px;
+      height: 28px;
+      background: #fcfbf3;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      z-index: -1;
+    }
+    .florist-container:hover .florist-dialogue {
+      display: block;
+    }
+    .gap-5 { gap: 9rem !important; }
+    .florist-section-loose {
+      margin-top: 4rem !important;
+      margin-bottom: 4rem !important;
+    }
+  </style>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
