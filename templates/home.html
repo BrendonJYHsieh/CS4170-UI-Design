@@ -9,39 +9,113 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .hero-bg {
+      background: url('/static/images/homepageBackground.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.25);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 80px;
+      text-align: center;
+      color: #fff;
+    }
+    .florist-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .florist-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      margin-bottom: 0.5rem;
+    }
+    .florist-label {
+      margin-top: 0.2rem;
+      font-size: 1rem;
+    }
+    .btn-learn {
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 1.3rem;
+      padding: 0.75rem 2.5rem;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-learn:hover {
+      background: #fff;
+      color: #198754;
+    }
+    .navbar {
+      background: #4caf50;
+      padding: 0.5rem 2rem;
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .navbar-nav {
+      gap: 2rem;
+    }
+    @media (max-width: 768px) {
+      .florist-row { flex-direction: column; gap: 2rem; }
+      .hero-content { padding-top: 40px; }
+    }
+  </style>
 </head>
 
 <body>
   <div id="navbar-placeholder"></div>
-
-  <div class="container-fluid hero-no-card">
-    <div class="overlay"></div>
-    <div class="content-center text-center text-white">
-      <h1 class="display-3 fw-bold mb-4">Floral Artistry Academy</h1>
-      <p class="lead mb-5 subtitle" style="margin-bottom: 2.5rem !important;">Master the Art of Flower Arrangement</p>
-      <p class="mb-5 description" style="margin-bottom: 3rem !important;">Welcome to your journey into the beautiful world of flower arrangement!</p>
-      <a href="{{ url_for('know_your_blooms') }}" class="btn btn-light btn-lg px-4 py-2 mb-5">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="display-3 fw-bold mb-3">Floral Artistry Academy</h1>
+      <p class="lead mb-3">Master the Art of Flower Arrangement</p>
+      <p class="mb-4">Welcome to your journey into the beautiful world of flower arrangement!</p>
+      <a href="{{ url_for('know_your_blooms') }}" class="btn btn-learn">
         <i class="bi bi-flower1 me-2"></i>Start to Learn
       </a>
-      
-      <!-- Interactive Florist Section -->
-      <div class="d-flex flex-row justify-content-center align-items-center mt-5 mb-5 gap-5 florist-section-loose">
-
-        <div class="florist-container position-relative d-flex flex-column align-items-center">
-          <img src="/static/images/florist2.png" alt="Florist 2" class="florist-img mb-3" />
-          <div class="florist-dialogue dialogue-ben" id="dialogue2">
+      <div class="florist-row">
+        <div class="florist-container position-relative text-center">
+          <img src="/static/images/florist2.png" alt="Florist Ben" class="florist-img" />
+          <div class="florist-dialogue dialogue-ben">
             <strong>Florist Ben</strong><br />
             Know Your Blooms and creative floral designs for special occasions!
           </div>
-          <span class="fw-bold">Florist Ben</span>
+          <div class="florist-label">Florist Ben</div>
         </div>
-        <div class="florist-container position-relative d-flex flex-column align-items-center">
-          <img src="/static/images/florist1.png" alt="Florist 1" class="florist-img mb-3" />
-          <div class="florist-dialogue dialogue-anna" id="dialogue1">
+        <div class="florist-container position-relative text-center">
+          <img src="/static/images/florist1.png" alt="Florist Anna" class="florist-img" />
+          <div class="florist-dialogue dialogue-anna">
             <strong>Florist Anna</strong><br />
             Learn the basics of flower arrangement!
           </div>
-          <span class="fw-bold">Florist Anna</span>
+          <div class="florist-label">Florist Anna</div>
         </div>
       </div>
     </div>
@@ -50,6 +124,7 @@
   <style>
     .florist-img {
       width: 200px;
+
       height: 200px;
       border-radius: 50%;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -69,10 +144,10 @@
       padding: 24px 28px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.12);
       z-index: 10;
-      min-width: 240px;
+      min-width: 200px;
       font-size: 1.08rem;
       text-align: center;
-      line-height: 1.7;
+      line-height: 1.2;
     }
     .dialogue-ben {
       bottom: 100%;
@@ -116,6 +191,7 @@
     }
     .florist-container:hover .florist-dialogue {
       display: block;
+
     }
     .gap-5 { gap: 9rem !important; }
     .florist-section-loose {
