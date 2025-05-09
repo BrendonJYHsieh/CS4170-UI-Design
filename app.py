@@ -3,6 +3,7 @@ import json, os, uuid
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+user_progress = {}
 
 # -------------------------------------------------
 #  Load lessons
@@ -173,6 +174,20 @@ def learn(lesson_number):
         lesson_number=lesson_number,
         next_lesson=next_lesson
     )
+
+@app.route('/record_progress', methods=['POST'])
+def record_progress():
+    data = request.get_json()
+    user_id = request.remote_addr
+
+    if user_id not in user_progress:
+        user_progress[user_id] = []
+
+    user_progress[user_id].append(data)
+
+    print(f"[{user_id}] Progress:", user_progress[user_id])
+    return jsonify({'status': 'ok'})
+
 
 # -------------------------------------------------
 #  AJAX endpoints: record_progress, get_progress … (UNCHANGED)
