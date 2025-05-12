@@ -185,8 +185,26 @@ def record_progress():
 
     user_progress[user_id].append(data)
 
-    print(f"[{user_id}] Progress:", user_progress[user_id])
+    # Load existing logs if file exists
+    log_file = 'log.json'
+    if os.path.exists(log_file):
+        with open(log_file, 'r') as f:
+            try:
+                existing_log = json.load(f)
+            except json.JSONDecodeError:
+                existing_log = {}
+    else:
+        existing_log = {}
+
+    # Append new progress
+    existing_log.setdefault(user_id, []).append(data)
+
+    # Write back to file
+    with open(log_file, 'w') as f:
+        json.dump(existing_log, f, indent=2)
+
     return jsonify({'status': 'ok'})
+
 
 
 # -------------------------------------------------
